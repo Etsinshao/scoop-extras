@@ -1,36 +1,33 @@
 {
-    "version": "2.9.1",
-    "description": "A Vim-inspired note-taking application that knows programmers and Markdown better.",
-    "homepage": "https://tamlok.github.io/vnote/",
-    "license": "MIT",
+    "version": "3.18.1",
+    "description": "A Vim-inspired note-taking platform",
+    "homepage": "https://app.vnote.fun",
+    "license": "LGPL-3.0-only",
+    "suggest": {
+        "vcredist": "extras/vcredist2022"
+    },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/tamlok/vnote/releases/download/v2.9.1/VNote_win_X64_portable_2.9.1.zip",
-            "hash": "c96474fd1bbc2fddc2c56b786d7843f96c3a677b18af354ed5474b74991b08db"
-        },
-        "32bit": {
-            "url": "https://github.com/tamlok/vnote/releases/download/v2.9.1/VNote_win_x86_portable_2.9.1.zip",
-            "hash": "45a17d0b540e262551bca4132d722b7f19eb4b60361c44fe12c8858614322289"
+            "url": "https://github.com/vnotex/vnote/releases/download/v3.18.1/VNote-3.18.1-win64.zip",
+            "hash": "f7e45cae82c8a0e8e03dc72c67adb0f6467bdea7b67f7682b92836e87b8605d5",
+            "extract_dir": "VNote-3.18.1-win64\\bin"
         }
     },
-    "extract_dir": "VNote",
-    "bin": "VNote.exe",
+    "bin": "vnote.exe",
     "shortcuts": [
         [
-            "VNote.exe",
+            "vnote.exe",
             "VNote"
         ]
     ],
     "checkver": {
-        "github": "https://github.com/tamlok/vnote"
+        "github": "https://github.com/vnotex/vnote"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/tamlok/vnote/releases/download/v$version/VNote_win_X64_portable_$version.zip"
-            },
-            "32bit": {
-                "url": "https://github.com/tamlok/vnote/releases/download/v$version/VNote_win_x86_portable_$version.zip"
+                "url": "https://github.com/vnotex/vnote/releases/download/v$version/VNote-$version-win64.zip",
+                "extract_dir": "VNote-$version-win64\\bin"
             }
         }
     }

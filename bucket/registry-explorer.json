@@ -1,27 +1,23 @@
 {
+    "version": "2.0.0.0",
+    "description": "Windows registry viewer",
     "homepage": "https://ericzimmerman.github.io",
-    "description": "Windows registry viewer.",
-    "version": "1.5.2.0",
     "license": "MIT",
-    "url": "https://f001.backblazeb2.com/file/EricZimmermanTools/RegistryExplorer_RECmd.zip",
-    "hash": "e3a891f44eec3ae9d0baa14bb8a8059d6548354a4e550eacdaef4854991d2aa3",
+    "url": "https://f001.backblazeb2.com/file/EricZimmermanTools/net6/RegistryExplorer.zip",
+    "hash": "50a11bd0a5e44dcea6469b8564eb3f010b9a8faf323ff6481222d391da26887e",
     "extract_dir": "RegistryExplorer",
-    "bin": [
-        "RECmd.exe",
-        "RegistryExplorer.exe"
-    ],
     "shortcuts": [
         [
             "RegistryExplorer.exe",
             "Registry Explorer"
         ]
     ],
-    "persist": "settings",
+    "persist": "Settings",
     "checkver": {
         "url": "https://raw.githubusercontent.com/EricZimmerman/ericzimmerman.github.io/master/index.md",
-        "regex": "Registry Explorer/RECmd \\| \\[([\\d.]+)\\]"
+        "regex": "Registry Explorer \\| - &vert; \\[([\\d.]+)\\]"
     },
     "autoupdate": {
-        "url": "https://f001.backblazeb2.com/file/EricZimmermanTools/RegistryExplorer_RECmd.zip"
+        "url": "https://f001.backblazeb2.com/file/EricZimmermanTools/net6/RegistryExplorer.zip"
     }
 }

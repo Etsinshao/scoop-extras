@@ -1,18 +1,16 @@
 {
-    "homepage": "https://www.inklestudios.com/ink/",
+    "version": "0.15.1",
     "description": "An editor for ink: inkle's narrative scripting language",
-    "version": "0.11.0",
+    "homepage": "https://www.inklestudios.com/ink/",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/inkle/inky/releases/download/0.11.0/Inky_windows_64.zip",
-            "hash": "bdcd518ad7f819ab573ebabbb07ba81c424cef84e84af7d13bb9daddac03e410",
-            "extract_dir": "Inky-win32-x64"
+            "url": "https://github.com/inkle/inky/releases/download/0.15.1/Inky_windows_64.zip",
+            "hash": "6c09fad772b01e7218234ad7f585871949186de0df7485e92d92ced6358390b6"
         },
         "32bit": {
-            "url": "https://github.com/inkle/inky/releases/download/0.11.0/Inky_windows_32.zip",
-            "hash": "24f80cb416d7790edcf11ece84fe5f387655fc3c2f781f66f842560d2835adae",
-            "extract_dir": "Inky-win32-ia32"
+            "url": "https://github.com/inkle/inky/releases/download/0.15.1/Inky_windows_32.zip",
+            "hash": "309d6c4455238739d2288586fbb0375aeaad4152e51c6ff765df42fc812f39ec"
         }
     },
     "shortcuts": [
@@ -21,6 +19,7 @@
             "Inky"
         ]
     ],
+    "bin": "Inky.exe",
     "checkver": {
         "github": "https://github.com/inkle/inky"
     },

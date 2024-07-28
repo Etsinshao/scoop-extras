@@ -1,19 +1,19 @@
 {
-    "version": "0.52.0",
+    "version": "0.78.1",
     "description": "The swiss army chainsaw of terminal emulators",
     "homepage": "https://extraterm.org",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/sedwards2009/extraterm/releases/download/v0.52.0/extraterm-0.52.0-win32-x64.zip",
-            "hash": "532c4add62f0cb3174836d996a306e73e30892832347383e61132b348ad0c544",
-            "extract_dir": "extraterm-0.52.0-win32-x64"
+            "url": "https://github.com/sedwards2009/extraterm/releases/download/v0.78.1/extratermqt-0.78.1-windows-x64.zip",
+            "hash": "78af4cf04b7d2fbea047ab72fff4fbf55bceac701ba0598b2a30356ecc159f2f",
+            "extract_dir": "extratermqt-0.78.1-windows-x64"
         }
     },
-    "bin": "extraterm.exe",
+    "bin": "extratermqt.exe",
     "shortcuts": [
         [
-            "extraterm.exe",
+            "extratermqt.exe",
             "Extraterm"
         ]
     ],
@@ -23,8 +23,8 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/sedwards2009/extraterm/releases/download/v$version/extraterm-$version-win32-x64.zip",
-                "extract_dir": "extraterm-$version-win32-x64"
+                "url": "https://github.com/sedwards2009/extraterm/releases/download/v$version/extratermqt-$version-windows-x64.zip",
+                "extract_dir": "extratermqt-$version-windows-x64"
             }
         }
     }

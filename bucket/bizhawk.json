@@ -1,23 +1,23 @@
 {
-    "version": "2.4.2",
+    "##": [
+        "The requirements are listed in https://github.com/TASVideos/BizHawk-Prereqs/blob/master/README",
+        "The list of firmware-specific directories to persist comes from the base directories listed in BizHawk's /src/BizHawk.Client.Common/config/PathEntryCollection.cs"
+    ],
+    "version": "2.9.1",
     "description": "Multi system emulator",
     "homepage": "http://tasvideos.org/BizHawk.html",
     "license": "MIT",
     "notes": ".NET Framework 4.8 is required.",
     "suggest": {
-        "Microsoft Visual C++ Redistributables": [
+        "vcredist": [
             "extras/vcredist2010",
-            "extras/vcredist2015"
+            "extras/vcredist2022"
         ]
     },
-    "##": [
-        "The requirements are listed in https://github.com/TASVideos/BizHawk-Prereqs/blob/master/README",
-        "The list of firmware-specific directories to persist comes from the base directories listed in BizHawk's /src/BizHawk.Client.Common/config/PathEntryCollection.cs"
-    ],
     "architecture": {
         "64bit": {
-            "url": "https://github.com/TASVideos/BizHawk/releases/download/2.4.2/BizHawk-2.4.2.zip",
-            "hash": "0e642e54add4a1533525cb4cad5fcfa3d1e1234225321db28a1fbbaba98fd247"
+            "url": "https://github.com/TASVideos/BizHawk/releases/download/2.9.1/BizHawk-2.9.1-win-x64.zip",
+            "hash": "ff6ddc657d474e37d3b06cb10154f19173a1455ab756476ed58236fca62387a9"
         }
     },
     "pre_install": "if (!(Test-Path \"$persist_dir\\config.ini\")) { New-Item \"$dir\\config.ini\" | Out-Null }",
@@ -63,8 +63,10 @@
         "Intellivision",
         "Libretro",
         "Lynx",
+        "Melon",
         "MSX",
         "N64",
+        "NDS",
         "NES",
         "NGP",
         "O2",
@@ -82,12 +84,13 @@
         "ZXSpectrum"
     ],
     "checkver": {
-        "github": "https://github.com/TASVideos/BizHawk"
+        "url": "http://tasvideos.org/Bizhawk/ReleaseHistory",
+        "regex": ">\\s*BizHawk\\s*([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/TASVideos/BizHawk/releases/download/$version/BizHawk-$version.zip"
+                "url": "https://github.com/TASVideos/BizHawk/releases/download/$version/BizHawk-$version-win-x64.zip"
             }
         }
     }

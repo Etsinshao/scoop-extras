@@ -1,5 +1,5 @@
 {
-    "version": "1.13.1",
+    "version": "2.10.0-stable.9587.git-0533c10",
     "description": "Desktop editor for API Design and Technical Writing",
     "homepage": "https://stoplight.io/studio",
     "license": {
@@ -9,8 +9,8 @@
     "suggest": {
         "Prism": "stoplight-prism"
     },
-    "url": "https://github.com/stoplightio/studio/releases/download/v1.13.1/stoplight-studio-win.exe#/dl.7z",
-    "hash": "sha512:6fc6ba7ad33ded041cf04ad99ffd76a4ae6115699f2d9e5a14a74c0c67e0501aa443792348c0cd08e568ec6376dda980cc409497ded1ace8a3345adccbaa69b8",
+    "url": "https://github.com/stoplightio/studio/releases/download/v2.10.0-stable.9587.git-0533c10/stoplight-studio-win.exe#/dl.7z",
+    "hash": "sha512:163aa9195368819e2dc2c04beaf324d5913a8cbca98e26cf058260b873d55e662146860160ff1452bbfebfd318852de0b5820945f71a6e40f9ee654556688476",
     "architecture": {
         "64bit": {
             "pre_install": "Expand-7zipArchive \"$dir\\`$PLUGINSDIR`\\app-64.7z\" \"$dir\""
@@ -27,7 +27,8 @@
         ]
     ],
     "checkver": {
-        "github": "https://github.com/stoplightio/studio"
+        "github": "https://github.com/stoplightio/studio",
+        "regex": "tag/v([\\w.-]+)"
     },
     "autoupdate": {
         "url": "https://github.com/stoplightio/studio/releases/download/v$version/stoplight-studio-win.exe#/dl.7z",

@@ -1,38 +1,44 @@
 {
-    "version": "3.2.2",
+    "version": "4.2.2",
     "description": "A feature-packed, cross-platform game engine to create 2D and 3D games from a unified interface.",
     "homepage": "https://godotengine.org/",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://downloads.tuxfamily.org/godotengine/3.2.2/Godot_v3.2.2-stable_win64.exe.zip",
-            "hash": "7da678156d6a9058a089156acfda41aab77f0e21772ffe5702e89eb1a8842de7"
+            "url": "https://github.com/godotengine/godot/releases/download/4.2.2-stable/Godot_v4.2.2-stable_win64.exe.zip",
+            "hash": "sha512:49e2252f862f3a73b11d1d77e8dfd2966633aa49a9033a75e067df0f6daf0da7accc91323a88f830daa6ef0ff2eefe2f53e1247afb10d56966f642bd5bc45877"
         },
         "32bit": {
-            "url": "https://downloads.tuxfamily.org/godotengine/3.2.2/Godot_v3.2.2-stable_win32.exe.zip",
-            "hash": "5d99d41df6a9c46fb8da2c156df560e71a81c7d2a50bbc12ed210602d0f86a97"
+            "url": "https://github.com/godotengine/godot/releases/download/4.2.2-stable/Godot_v4.2.2-stable_win32.exe.zip",
+            "hash": "sha512:2ea3a1503b5373d550cde2b33124e0b42455b3c73022197e0af8a5a4d8e9e074042b121936a760d298eb304e724b6d32f853a1a386895b441f9f3f81fd1ce2d9"
         }
     },
-    "pre_install": "Get-ChildItem \"$dir\\Godot_*.exe\" | Rename-Item -NewName \"$dir\\godot.exe\"",
+    "pre_install": [
+        "Remove-Item \"$dir\\Godot_*_console.*\"",
+        "Get-Item \"$dir\\Godot_*.exe\" | Rename-Item -NewName 'godot.exe'"
+    ],
     "bin": "godot.exe",
     "shortcuts": [
         [
             "godot.exe",
-            "Godot"
+            "Godot Engine"
         ]
     ],
     "checkver": {
-        "url": "https://godotengine.org/download",
-        "regex": "<h2>Godot <em>([\\d.]+)</em></h2>"
+        "url": "https://github.com/godotengine/godot/releases/latest",
+        "regex": "(?<version>[\\d\\w.]+)-stable"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://downloads.tuxfamily.org/godotengine/$version/Godot_v$version-stable_win64.exe.zip"
+                "url": "https://github.com/godotengine/godot/releases/download/$version-stable/Godot_v$version-stable_win64.exe.zip"
             },
             "32bit": {
-                "url": "https://downloads.tuxfamily.org/godotengine/$version/Godot_v$version-stable_win32.exe.zip"
+                "url": "https://github.com/godotengine/godot/releases/download/$version-stable/Godot_v$version-stable_win32.exe.zip"
             }
+        },
+        "hash": {
+            "url": "$baseurl/SHA512-SUMS.txt"
         }
     }
 }

@@ -1,13 +1,13 @@
 {
-    "version": "8.62.0.83",
+    "version": "8.124.0.204",
     "description": "Communication tool for free calls and chat.",
     "homepage": "https://www.skype.com/",
     "license": {
         "identifier": "Freeware",
         "url": "https://www.microsoft.com/en-us/servicesagreement/"
     },
-    "url": "https://download.skype.com/s4l/download/win/Skype-8.62.0.83.exe",
-    "hash": "md5:fc4df6b997cd0cb46440d0d8a8148150",
+    "url": "http://download.skype.com/s4l/download/win/Skype-8.124.0.204.exe",
+    "hash": "235c84edcd4aea93f85a4b0a5704fc5e9d0845905b52822214f992912057865f",
     "innosetup": true,
     "shortcuts": [
         [
@@ -16,14 +16,13 @@
         ]
     ],
     "checkver": {
-        "url": "http://www.skaip.org/",
-        "regex": "Skype ([\\d.]+) for Windows"
+        "script": [
+            "$resp = [System.Net.WebRequest]::Create('http://get.skype.com/go/getskype-skypeforwindows').GetResponse()",
+            "Write-Output = $resp.ResponseUri.LocalPath"
+        ],
+        "regex": "Skype-([\\d.]+)\\.exe"
     },
     "autoupdate": {
-        "url": "https://download.skype.com/s4l/download/win/Skype-$version.exe",
-        "hash": {
-            "url": "http://www.skaip.org/skype-$dashVersion-for-windows",
-            "regex": "(?sm)MD5:.*?$md5"
-        }
+        "url": "http://download.skype.com/s4l/download/win/Skype-$version.exe"
     }
 }

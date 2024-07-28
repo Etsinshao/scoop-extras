@@ -1,10 +1,15 @@
 {
+    "version": "1.1.2",
+    "description": "A feature-rich descendant of Enso Community Edition",
     "homepage": "https://github.com/GChristensen/enso-portable",
-    "description": "A feature-rich descendant of Enso Community Edition (win32).",
-    "version": "0.5.0",
     "license": "Unknown",
-    "url": "https://github.com/GChristensen/enso-portable/releases/download/v0.5.0/enso-open-source-0.5.0.exe#/dl.7z",
-    "hash": "f2ed5610aadab297de7e5a10da89eb4d67381fd2a2587e6ffc1d917ffd9f0dd4",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/GChristensen/enso-portable/releases/download/v1.1.2a/enso-open-source-1.1.2-x86_64.exe#/dl.7z",
+            "hash": "ef18562cac5a9b0f2eb5492ec34afd363256ff8f61b8c996d90882703cf8a266"
+        }
+    },
+    "pre_install": "Remove-Item \"$dir\\`$*\" -Recurse",
     "bin": [
         [
             "run-enso.exe",
@@ -13,6 +18,10 @@
     ],
     "checkver": "github",
     "autoupdate": {
-        "url": "https://github.com/GChristensen/enso-portable/releases/download/v$version/enso-open-source-$version.exe#/dl.7z"
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/GChristensen/enso-portable/releases/download/v$version/enso-open-source-$version-x86_64.exe#/dl.7z"
+            }
+        }
     }
 }

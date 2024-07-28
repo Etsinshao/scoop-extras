@@ -1,5 +1,5 @@
 {
-    "version": "70.0.3728.71",
+    "version": "112.0.5197.39",
     "description": "Fast, secure, easy-to-use browser.",
     "homepage": "https://www.opera.com/",
     "license": {
@@ -8,12 +8,12 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://download1.operacdn.com/pub/opera/desktop/70.0.3728.71/win/Opera_70.0.3728.71_Setup_x64.exe#/dl.7z",
-            "hash": "c98fac6e9be38e057e731e10e64a28d827ef98652272e0c45c71cf6406a48296"
+            "url": "https://get.geo.opera.com/pub/opera/desktop/112.0.5197.39/win/Opera_112.0.5197.39_Setup_x64.exe#/dl.7z",
+            "hash": "1eab7786c7b42e8250f6058405f7f697a052bb891e1e2c81b9bee1e1b9bb25a4"
         },
         "32bit": {
-            "url": "https://download1.operacdn.com/pub/opera/desktop/70.0.3728.71/win/Opera_70.0.3728.71_Setup.exe#/dl.7z",
-            "hash": "6fa316c444a8b5d2ba79af874d5b5f5fb76c2e1394f60ab87d740ee656618bf7"
+            "url": "https://get.geo.opera.com/pub/opera/desktop/112.0.5197.39/win/Opera_112.0.5197.39_Setup.exe#/dl.7z",
+            "hash": "f58ea521efa5175426d09e3bb77afe99d9df59f61ea5ad852914ddeeed396f32"
         }
     },
     "installer": {
@@ -35,17 +35,23 @@
     ],
     "persist": "profile",
     "checkver": {
-        "url": "http://get.opera.com/ftp/pub/opera/desktop/",
-        "regex": "([\\d.]+)/",
-        "reverse": true
+        "script": [
+            "$releases = 'https://get.geo.opera.com/pub/opera/desktop/'",
+            "$download_page = Invoke-WebRequest -Uri $releases -UseBasicParsing",
+            "$versionSort   = { [version]$_.href.TrimEnd('/') }",
+            "$last_ver = $download_page.links | Where-Object href -match '^[\\d]+[\\d\\.]+/$' | Sort-Object $versionSort -Descending | Select-Object -first 1 -expand href",
+            "$version = $last_ver -replace '/', ''",
+            "Write-Output $version"
+        ],
+        "regex": "(\\S+)"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://download1.operacdn.com/pub/opera/desktop/$version/win/Opera_$version_Setup_x64.exe#/dl.7z"
+                "url": "https://get.geo.opera.com/pub/opera/desktop/$version/win/Opera_$version_Setup_x64.exe#/dl.7z"
             },
             "32bit": {
-                "url": "https://download1.operacdn.com/pub/opera/desktop/$version/win/Opera_$version_Setup.exe#/dl.7z"
+                "url": "https://get.geo.opera.com/pub/opera/desktop/$version/win/Opera_$version_Setup.exe#/dl.7z"
             }
         },
         "hash": {

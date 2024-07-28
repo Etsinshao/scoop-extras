@@ -1,22 +1,23 @@
 {
-    "homepage": "https://thonny.org",
+    "version": "4.1.4",
     "description": "Python IDE for beginners",
+    "homepage": "https://thonny.org",
     "license": "MIT",
-    "version": "3.2.7",
-    "url": "https://github.com/thonny/thonny/releases/download/v3.2.7/thonny-3.2.7-windows-portable.zip",
-    "hash": "f1a1874e3d4269747a098cffbb202a9c6130fed1812900be437ad7cd3ee86903",
+    "url": "https://github.com/thonny/thonny/releases/download/v4.1.4/thonny-4.1.4-windows-portable.zip",
+    "hash": "1c4192e1e96b69e96f2f560ca529eb2a4d9317cdb0265da86fc41e5b4d4b4679",
     "shortcuts": [
         [
             "thonny.exe",
             "Thonny"
         ]
     ],
-    "persist": "user_data",
     "env_set": {
         "THONNY_USER_DIR": "$persist_dir\\user_data"
     },
+    "persist": "user_data",
     "checkver": {
-        "github": "https://github.com/thonny/thonny"
+        "url": "https://api.github.com/repositories/163728962/releases",
+        "regex": "thonny-([\\d.]+)-windows-portable\\.zip"
     },
     "autoupdate": {
         "url": "https://github.com/thonny/thonny/releases/download/v$version/thonny-$version-windows-portable.zip"

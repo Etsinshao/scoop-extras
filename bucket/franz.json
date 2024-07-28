@@ -1,10 +1,10 @@
 {
-    "version": "5.5.0",
+    "version": "5.10.0",
     "description": "Messaging app for services like WhatsApp, Slack, Messenger and many more.",
     "homepage": "https://meetfranz.com",
     "license": "Apache-2.0",
-    "url": "https://github.com/meetfranz/franz/releases/download/v5.5.0/franz-setup-5.5.0.exe#/dl.7z",
-    "hash": "sha512:72ea167302155cb512ea8c840db78dc19001bd5279f58f561c73d097954fa27bf5d44e2c5d2a01abb55a2c53e584d84920b7e87f0793080ea6ac38865c228591",
+    "url": "https://github.com/meetfranz/franz/releases/download/v5.10.0/franz-setup-5.10.0.exe#/dl.7z",
+    "hash": "sha512:cb77cb0f64f8be2e8caad2c34399090cd13b392b9d9acb3359d3b38b4840ecfc74ff29b2309422825c9d80ecc8e265062901b67dfbdd4f4be7082f45c74cfe74",
     "architecture": {
         "64bit": {
             "installer": {

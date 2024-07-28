@@ -1,10 +1,10 @@
 {
-    "homepage": "https://geekuninstaller.com/",
+    "version": "1.5.2.165",
     "description": "Basic uninstaller though powerful and lightning fast.",
+    "homepage": "https://geekuninstaller.com/",
     "license": "Shareware",
-    "version": "1.4.7.142",
     "url": "https://geekuninstaller.com/geek.7z",
-    "hash": "c179703bb29dd12f5a90abbf1632d05417eab8b818822319266ee84de9daca48",
+    "hash": "c7592de79d2cd5fa6039c61443e46962738256c4c256351c11a06af5ff1f7bc8",
     "bin": "geek.exe",
     "shortcuts": [
         [
@@ -14,7 +14,7 @@
     ],
     "checkver": {
         "url": "https://geekuninstaller.com/download",
-        "re": "<b>([\\d.]+)"
+        "regex": "<b>([\\d.]+)"
     },
     "autoupdate": {
         "url": "https://geekuninstaller.com/geek.7z"

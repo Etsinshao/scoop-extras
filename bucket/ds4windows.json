@@ -1,23 +1,25 @@
 {
-    "version": "2.1.4",
+    "version": "3.3.3",
     "description": "Allows to get the best experience while using a DualShock 4 on PC.",
     "homepage": "https://ryochan7.github.io/ds4windows-site/",
     "license": "MIT",
+    "notes": "ViGEmBus is required for DS4Windows to work. You can install it within the app.",
+    "suggest": {
+        ".NET Desktop Runtime": "extras/windowsdesktop-runtime"
+    },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Ryochan7/DS4Windows/releases/download/v2.1.4/DS4Windows_2.1.4_x64.zip",
-            "hash": "858c5f398806ca965edb7f96cbe569f88a86e2a574e5e0b4a85b7de05eeb4bf9"
+            "url": "https://github.com/Ryochan7/DS4Windows/releases/download/v3.3.3/DS4Windows_3.3.3_x64.zip",
+            "hash": "cf5619bcb51b82e4e1765276e9f67fb1e2d23dff968a653657acf35bafff8bf4"
         },
         "32bit": {
-            "url": "https://github.com/Ryochan7/DS4Windows/releases/download/v2.1.4/DS4Windows_2.1.4_x86.zip",
-            "hash": "1885095e8cbdae6d7dae4b5c480f1bd739ba2de875ff4ce12d599c122aee91b5"
+            "url": "https://github.com/Ryochan7/DS4Windows/releases/download/v3.3.3/DS4Windows_3.3.3_x86.zip",
+            "hash": "5d2a287b6dd5e8da8f9d9ee058bce12880d3d5a90752aa6a3e5769baaacadca2"
         }
     },
     "extract_dir": "DS4Windows",
     "pre_install": [
         "$conf = @(",
-        "    @{'Profiles.xml' = '<?xml version=\"1.0\" encoding=\"utf-8\"?><Profile><CheckWhen>0</CheckWhen></Profile>' }",
-        "    @{'Auto Profiles.xml' = '<?xml version=\"1.0\" encoding=\"utf-8\"?><Programs />' }",
         "    @{'Actions.xml' = @'",
         "<?xml version=\"1.0\" encoding=\"utf-8\"?>",
         "<Actions>",
@@ -28,13 +30,23 @@
         "    </Action>",
         "</Actions>",
         "'@ }",
+        "    @{'Auto Profiles.xml' = '<?xml version=\"1.0\" encoding=\"utf-8\"?><Programs />' }",
+        "    @{'ControllerConfigs.xml' = '<?xml version=\"1.0\" encoding=\"utf-8\"?><Controllers />' }",
+        "    @{'LinkedProfiles.xml' = '<?xml version=\"1.0\" encoding=\"utf-8\"?><LinkedControllers />' }",
+        "    @{'OutputSlots.xml' = '<?xml version=\"1.0\" encoding=\"utf-8\"?><OutputSlots />' }",
+        "    @{'Profiles.xml' = '<?xml version=\"1.0\" encoding=\"utf-8\"?><Profile><CheckWhen>0</CheckWhen></Profile>' }",
         ")",
+        "",
+        "# Create default files",
         "foreach ($k in $conf.Keys) {",
-        "    if (-not (Test-Path \"$persist_dir\\$k\")) { Set-Content \"$dir\\$k\" $conf.$k -Encoding Ascii }",
+        "    if (!(Test-Path \"$persist_dir\\$k\")) { ",
+        "        Set-Content \"$dir\\$k\" $conf.$k -Encoding Ascii",
+        "    }",
         "}",
+        "",
+        "# Delete updater",
         "if (Test-Path \"$dir\\DS4Updater.exe\") { Remove-Item \"$dir\\DS4Updater.exe\" -Force }"
     ],
-    "bin": "DS4Windows.exe",
     "shortcuts": [
         [
             "DS4Windows.exe",
@@ -45,6 +57,9 @@
         "Profiles",
         "Actions.xml",
         "Auto Profiles.xml",
+        "ControllerConfigs.xml",
+        "LinkedProfiles.xml",
+        "OutputSlots.xml",
         "Profiles.xml"
     ],
     "checkver": {

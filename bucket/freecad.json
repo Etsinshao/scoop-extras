@@ -1,18 +1,15 @@
 {
-    "version": "0.18.4",
-    "description": "Free and open-source general-purpose parametric 3D CAD modeler and a building information modeling software with finite-element-method support.",
-    "homepage": "https://www.freecadweb.org/",
+    "version": "0.21.2",
+    "description": "A free and open-source multi-platform parametric 3D modeler.",
+    "homepage": "https://www.freecadweb.org",
     "license": "LGPL-2.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/FreeCAD/FreeCAD/releases/download/0.18.4/FreeCAD-0.18.4.980bf90-WIN-x64-installer.exe#/dl.7z",
-            "hash": "sha1:546f5d8133a2fc2cbca748f4ba1e4d1365857dae"
-        },
-        "32bit": {
-            "url": "https://github.com/FreeCAD/FreeCAD/releases/download/0.18.4/FreeCAD-0.18.4.980bf90-WIN-x32-installer.exe#/dl.7z",
-            "hash": "a3c00e00e5321d9786c56d58c501f8a8e43ba9d25f7147cd8b9c869d744be514"
+            "url": "https://github.com/FreeCAD/FreeCAD/releases/download/0.21.2/FreeCAD-0.21.2-Windows-x86_64.7z",
+            "hash": "06a8f162e3fa9bd8cc98c0cf117d1b3507b9a6564d3da0d16bc5e5c11d7e7880"
         }
     },
+    "pre_install": "pushd $dir ; mv */* . ; rm FreeCAD_* ; popd",
     "bin": "bin\\FreeCADCmd.exe",
     "shortcuts": [
         [
@@ -20,23 +17,20 @@
             "FreeCAD"
         ]
     ],
-    "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninstall*\" -Recurse -Force",
     "checkver": {
-        "github": "https://github.com/FreeCAD/FreeCAD/",
-        "regex": "releases/download/([\\d.]+)/FreeCAD-(?<build>[\\w.]+)-WIN"
+        "url": "https://api.github.com/repositories/5736080/releases",
+        "regex": "FreeCAD-([\\d.]+)-Windows-x86_64((-\\d+)?)\\.7z",
+        "replace": "${1}${2}"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/FreeCAD/FreeCAD/releases/download/$version/FreeCAD-$matchBuild-WIN-x64-installer.exe#/dl.7z"
-            },
-            "32bit": {
-                "url": "https://github.com/FreeCAD/FreeCAD/releases/download/$version/FreeCAD-$matchBuild-WIN-x32-installer.exe#/dl.7z"
+                "url": "https://github.com/FreeCAD/FreeCAD/releases/download/$matchHead/FreeCAD-$matchHead-Windows-x86_64$matchTail.7z"
             }
         },
         "hash": {
             "url": "$url-SHA256.txt",
-            "regex": "(?sm):\\s+([a-fA-F\\d\\s]+)CertUtil"
+            "regex": "(?sm)$basename.*?$sha256"
         }
     }
 }

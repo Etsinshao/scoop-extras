@@ -1,7 +1,7 @@
 {
-    "homepage": "https://potassco.org/clingo/",
-    "description": "A grounder and solver for logic programs.",
     "version": "5.4.0",
+    "description": "A grounder and solver for logic programs.",
+    "homepage": "https://potassco.org/clingo/",
     "license": "MIT",
     "architecture": {
         "64bit": {
@@ -18,17 +18,13 @@
         "lpconvert.exe"
     ],
     "checkver": {
-        "github": "https://github.com/potassco/clingo"
+        "url": "https://api.github.com/repositories/58459878/releases",
+        "regex": "clingo-([\\d.]+)-win64\\.zip"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/potassco/clingo/releases/download/v$version/clingo-$version-win64.zip",
-                "extract_dir": "clingo-$version-win64"
-            },
-            "32bit": {
-                "url": "https://github.com/potassco/clingo/releases/download/v$version/clingo-$version-win32.zip",
-                "extract_dir": "clingo-$version-win32"
+                "url": "https://github.com/potassco/clingo/releases/download/v$version/clingo-$version-win64.zip"
             }
         }
     }

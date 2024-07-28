@@ -1,15 +1,15 @@
 {
-    "version": "0.92",
+    "version": "1.3",
     "description": "Extensible procedural material generator",
     "homepage": "https://rodzilla.itch.io/material-maker",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/RodZill4/godot-procedural-textures/releases/download/0.92/material_maker_0_92_windows.zip",
-            "hash": "8da9cce2474ef60988935a08d76761f2bb841f6eafd247830456fd5879007981"
+            "url": "https://github.com/RodZill4/godot-procedural-textures/releases/download/1.3/material_maker_1_3_windows.zip",
+            "hash": "f81765a0882669cf5b354cb3b1cf431730c5e0a60127c4b276b07179d52d0d67"
         }
     },
-    "extract_dir": "material_maker_0.92_windows",
+    "extract_dir": "material_maker_1_3_windows",
     "bin": "material_maker.exe",
     "shortcuts": [
         [
@@ -26,6 +26,6 @@
                 "url": "https://github.com/RodZill4/godot-procedural-textures/releases/download/$version/material_maker_$underscoreVersion_windows.zip"
             }
         },
-        "extract_dir": "material_maker_$version_windows"
+        "extract_dir": "material_maker_$underscoreVersion_windows"
     }
 }

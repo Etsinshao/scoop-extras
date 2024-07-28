@@ -1,26 +1,42 @@
 {
+    "version": "33.2.1",
     "description": "Mozilla-derived web browser focusing on efficiency and customization",
     "homepage": "https://www.palemoon.org",
-    "version": "28.11.0",
     "license": "MPL-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://rm-eu.palemoon.org/release/palemoon-28.11.0.win64.7z",
-            "hash": "e1e8fcffaa7b602f064e9a5adcb95fe26c73d539378c4de232e82d7e5d815ccd"
+            "url": "https://rm-eu.palemoon.org/release/Palemoon-Portable-33.2.1.win64.exe#/palemoon.7z",
+            "hash": "7568eb55d4c4470e17b9bf3562156649cd989fa120ce993ac0e8ecf8f3884311"
         },
         "32bit": {
-            "url": "https://rm-eu.palemoon.org/release/palemoon-28.11.0.win32.7z",
-            "hash": "0389a539bd0dd5593ce34870f5e2a6ba763e954b2405d9a4b6b2c03452a6f4e1"
+            "url": "https://rm-eu.palemoon.org/release/Palemoon-Portable-33.2.1.win32.exe#/palemoon.7z",
+            "hash": "b19aebffe1ac0ea36b857b17e62ef06453393ef33a526ccfca6e00b8efce613b"
         }
     },
-    "bin": "palemoon.exe",
+    "post_install": [
+        "(Get-Content \"$dir\\Palemoon-Portable.ini\") -replace 'ShowSplash=true','ShowSplash=false' | Set-Content \"$dir\\Palemoon-Portable.ini\"",
+        "if (!(Test-Path \"$dir\\User\\Palemoon\\Profiles\") -and (Test-Path \"$env:AppData\\Moonchild Productions\\Pale Moon\\Profiles\")) {",
+        "    mkdir \"$dir\\User\\Palemoon\" -ErrorAction SilentlyContinue",
+        "    Copy-Item \"$env:AppData\\Moonchild Productions\\Pale Moon\\Profiles\" \"$dir\\User\\Palemoon\" -Recurse",
+        "}"
+    ],
+    "bin": [
+        [
+            "Palemoon-Portable.exe",
+            "palemoon"
+        ]
+    ],
     "shortcuts": [
         [
-            "palemoon.exe",
+            "Palemoon-Portable.exe",
             "Pale Moon"
         ]
     ],
-    "extract_dir": "palemoon",
+    "persist": [
+        "Backups",
+        "Downloads",
+        "User"
+    ],
     "checkver": {
         "url": "https://www.palemoon.org/download.shtml",
         "regex": "Hashes for release ([\\d.]+)"
@@ -28,10 +44,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://rm-eu.palemoon.org/release/palemoon-$version.win64.7z"
+                "url": "https://rm-eu.palemoon.org/release/Palemoon-Portable-$version.win64.exe#/palemoon.7z"
             },
             "32bit": {
-                "url": "https://rm-eu.palemoon.org/release/palemoon-$version.win32.7z"
+                "url": "https://rm-eu.palemoon.org/release/Palemoon-Portable-$version.win32.exe#/palemoon.7z"
             }
         },
         "hash": {

@@ -1,42 +1,44 @@
 {
-    "homepage": "https://www.elastic.co/products/kibana",
+    "version": "8.14.3",
     "description": "An open source analytics and visualization platform designed to work with Elasticsearch.",
-    "version": "7.8.1",
+    "homepage": "https://www.elastic.co/products/kibana",
     "license": {
         "identifier": "Freeware|Apache-2.0",
         "url": "https://github.com/elastic/kibana/blob/7.2/licenses/ELASTIC-LICENSE.txt"
     },
-    "url": "https://artifacts.elastic.co/downloads/kibana/kibana-7.8.1-windows-x86_64.zip",
-    "hash": "sha512:3db17ca8a22d875ec3aeb42ee9a7a204c215167891f2d4c15692d9d0ecc852f7d93bd679a51d5357c35eb84298a94786f2e332a3eaa7e2a4a6ca4f638ec9e57a",
-    "extract_dir": "kibana-7.8.1-windows-x86_64",
-    "bin": [
-        [
-            "bin\\kibana.bat",
-            "kibana"
-        ],
-        [
-            "bin\\kibana-plugin.bat",
-            "kibana-plugin"
-        ]
-    ],
-    "persist": [
-        "config",
-        "data",
-        "plugins"
-    ],
     "suggest": {
         "JDK": [
             "java/oraclejdk",
             "java/openjdk"
         ]
     },
+    "architecture": {
+        "64bit": {
+            "url": "https://artifacts.elastic.co/downloads/kibana/kibana-8.14.3-windows-x86_64.zip",
+            "hash": "sha512:b9771c905e8790f65dfc46da4c68ff1d2cc8e92b119ca22b4997ae3dbc023921d6d732571db137669fc10d392ddb45b121545b8bb9f78b687babbd23187e1f32",
+            "extract_dir": "kibana-8.14.3"
+        }
+    },
+    "bin": [
+        "bin\\kibana.bat",
+        "bin\\kibana-plugin.bat"
+    ],
+    "persist": [
+        "config",
+        "data",
+        "plugins"
+    ],
     "checkver": {
         "url": "https://www.elastic.co/downloads/kibana",
-        "re": "kibana-([\\d.]+)-windows-x86_64.zip"
+        "regex": "kibana-([\\d.]+)-windows-x86_64\\.zip"
     },
     "autoupdate": {
-        "url": "https://artifacts.elastic.co/downloads/kibana/kibana-$version-windows-x86_64.zip",
-        "extract_dir": "kibana-$version-windows-x86_64",
+        "architecture": {
+            "64bit": {
+                "url": "https://artifacts.elastic.co/downloads/kibana/kibana-$version-windows-x86_64.zip",
+                "extract_dir": "kibana-$version"
+            }
+        },
         "hash": {
             "url": "$url.sha512"
         }

@@ -1,14 +1,18 @@
 {
-    "version": "2.6.5",
-    "description": "Desktop sync client for Nextcloud, a self-hosted productivity platform that keeps you in control.",
+    "version": "3.13.2",
+    "description": "Desktop sync client for Nextcloud, a self-hosted productivity platform",
     "homepage": "https://nextcloud.com/",
     "license": "GPL-2.0-or-later",
     "suggest": {
-        "Microsoft Visual C++ Redistributable 2017": "extras/vcredist2017"
+        "vcredist": "extras/vcredist2022"
     },
-    "url": "https://download.nextcloud.com/desktop/releases/Windows/Nextcloud-2.6.5-setup.exe#/dl.7z",
-    "hash": "6a29295672e2457693f1ddcace403b1e288bcd76e3e618fe87d0ae6cd6adf99b",
-    "pre_install": "'$R*', '$P*', 'vc_redist*' | ForEach-Object { Remove-Item \"$dir\\$_\" -Force -Recurse }",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/nextcloud-releases/desktop/releases/download/v3.13.2/Nextcloud-3.13.2-x64.msi",
+            "hash": "8633a04fe246f02245832cde412f357dd94fb391f55ed5178af94d9e610a3a00"
+        }
+    },
+    "extract_dir": "PFiles\\Nextcloud",
     "bin": [
         "nextcloudcmd.exe",
         [
@@ -24,9 +28,13 @@
     ],
     "checkver": {
         "url": "https://nextcloud.com/install/",
-        "regex": "Latest stable version: ([\\d.]+)"
+        "regex": "Nextcloud-([\\d.]+)-x64.msi"
     },
     "autoupdate": {
-        "url": "https://download.nextcloud.com/desktop/releases/Windows/Nextcloud-$version-setup.exe#/dl.7z"
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/nextcloud-releases/desktop/releases/download/v$version/Nextcloud-$version-x64.msi"
+            }
+        }
     }
 }

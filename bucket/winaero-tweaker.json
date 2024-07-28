@@ -1,24 +1,24 @@
 {
-    "homepage": "https://winaero.com/comment.php?comment.news.1836",
+    "##": "The installer is made with InnoSetup, but encrypted with a password.",
+    "version": "1.63.0.0",
+    "description": "Tweaks and hidden settings for power-users for Windows 7/8/8.1/10/11",
+    "homepage": "https://winaerotweaker.com/",
     "license": {
         "identifier": "Freeware",
         "url": "https://winaero.com/comment.php?comment.news.1836"
     },
-    "description": "Tweaks and hidden settings for power-users for Windows 7/8/8.1/10",
-    "version": "0.17.1",
-    "url": "https://winaero.com/winaerotweaker.zip",
-    "hash": "8349864814d217ec366dd2efd8513f51cc5b3fec84ddccf6e1cad0d9504a40ad",
-    "pre_install": "Rename-Item (Get-ChildItem \"$dir\" *.exe).FullName setup.exe",
+    "url": "https://winaerotweaker.com/download/winaerotweaker.zip",
+    "hash": "8b46861abb7266c798b27cd6e4cc95e6e81215870128f892236b7a27dfb02b74",
+    "pre_install": [
+        "Remove-Item \"$dir\\SilentSetup.cmd\" -ErrorAction 'SilentlyContinue'",
+        "Get-ChildItem \"$dir\" '*setup.exe' | Rename-Item -NewName 'setup.exe'"
+    ],
     "installer": {
-        "file": "setup.exe",
-        "args": [
-            "/SP-",
-            "/VERYSILENT",
-            "/PORTABLE",
-            "/DIR=\"$dir\""
+        "script": [
+            "Start-Process -Wait \"$dir\\setup.exe\" -ArgumentList @('/SP-', '/VERYSILENT', '/PORTABLE', \"/DIR=`\"$dir`\"\")",
+            "Remove-Item \"$dir\\setup.exe\""
         ]
     },
-    "post_install": "if (Test-Path \"$dir\\SilentSetup.cmd\") { Remove-Item \"$dir\\SilentSetup.cmd\" }",
     "bin": "WinaeroTweaker.exe",
     "shortcuts": [
         [
@@ -26,8 +26,11 @@
             "Winaero Tweaker"
         ]
     ],
-    "checkver": "change log\\s*</h2>\\s*([\\d\\.]+)",
+    "checkver": {
+        "url": "https://winaero.com/updates/tweaker.txt",
+        "regex": "^([\\d.]+)"
+    },
     "autoupdate": {
-        "url": "https://winaero.com/winaerotweaker.zip"
+        "url": "https://winaerotweaker.com/download/winaerotweaker.zip"
     }
 }

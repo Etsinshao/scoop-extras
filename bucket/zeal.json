@@ -1,25 +1,25 @@
 {
+    "version": "0.7.1",
+    "description": "An offline documentation browser for software developers",
     "homepage": "https://zealdocs.org/",
-    "description": "An offline documentation browser for software developers.",
     "license": "GPL-3.0-only",
-    "version": "0.6.1",
     "architecture": {
-        "32bit": {
-            "url": "https://dl.bintray.com/zealdocs/windows/zeal-portable-0.6.1-windows-x86.7z",
-            "hash": "9ab3fd0c15101afe3e6be18afe892868c37784d4bf556a81311b3544621501ae",
-            "extract_dir": "zeal-portable-0.6.1-windows-x86"
-        },
         "64bit": {
-            "url": "https://dl.bintray.com/zealdocs/windows/zeal-portable-0.6.1-windows-x64.7z",
-            "hash": "08e9992f620ba0a5ea348471d8ac9c85059e95eedd950118928be639746e3f94",
-            "extract_dir": "zeal-portable-0.6.1-windows-x64"
+            "url": "https://github.com/zealdocs/zeal/releases/download/v0.7.1/zeal-0.7.1-portable-windows-x64.7z",
+            "hash": "a8a03ec9671823d744fd7afe504c8b46146cb1f6b96c6b019c7ac21a3aa523b1",
+            "extract_dir": "zeal-0.7.1-portable-windows-x64"
         }
     },
     "pre_install": [
-        "if (!(Test-Path \"$persist_dir\\zeal.ini\")) {",
+        "if (Test-Path \"$persist_dir\\zeal.ini\") {",
+        "    Copy-Item \"$persist_dir\\zeal.ini\" \"$dir\" -ErrorAction 'SilentlyContinue' -Force",
+        "} else {",
         "    Set-Content \"$dir\\zeal.ini\" @('[General]', 'check_for_update=false') -Encoding ASCII",
         "}"
     ],
+    "uninstaller": {
+        "script": "Copy-Item \"$dir\\zeal.ini\" \"$persist_dir\" -ErrorAction 'SilentlyContinue' -Force"
+    },
     "bin": "zeal.exe",
     "shortcuts": [
         [
@@ -28,7 +28,6 @@
         ]
     ],
     "persist": [
-        "zeal.ini",
         "cache",
         "docsets"
     ],
@@ -38,17 +37,10 @@
     },
     "autoupdate": {
         "architecture": {
-            "32bit": {
-                "url": "https://dl.bintray.com/zealdocs/windows/zeal-portable-$version-windows-x86.7z",
-                "extract_dir": "zeal-portable-$version-windows-x86"
-            },
             "64bit": {
-                "url": "https://dl.bintray.com/zealdocs/windows/zeal-portable-$version-windows-x64.7z",
-                "extract_dir": "zeal-portable-$version-windows-x64"
+                "url": "https://github.com/zealdocs/zeal/releases/download/v$version/zeal-$version-portable-windows-x64.7z",
+                "extract_dir": "zeal-$version-portable-windows-x64"
             }
-        },
-        "hash": {
-            "url": "$url.sha256"
         }
     }
 }

@@ -1,12 +1,12 @@
 {
-    "homepage": "https://dupeguru.voltaicideas.net/",
-    "description": "dupeGuru is a cross-platform (Linux, OS X, Windows) GUI tool to find duplicate files in a system.",
+    "version": "4.3.1",
+    "description": "Duplicates file finder",
+    "homepage": "https://dupeguru.voltaicideas.net",
     "license": "GPL-3.0-only",
-    "version": "4.0.4",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/arsenetar/dupeguru/releases/download/4.0.4/dupeGuru_win64_4.0.4.exe#/dl.7z",
-            "hash": "72637b8d526d97c7b1836857f4012de831a07b3f156028b1b854f1e6e6fd1d84",
+            "url": "https://github.com/arsenetar/dupeguru/releases/download/4.3.1/dupeGuru_win64_4.3.1.exe#/dl.7z",
+            "hash": "28293dada3c88336b2b53aca00adf59f85cabf1362f8386a8ffc6be5e1742836",
             "bin": [
                 [
                     "dupeguru-win64.exe",
@@ -21,8 +21,8 @@
             ]
         },
         "32bit": {
-            "url": "https://github.com/arsenetar/dupeguru/releases/download/4.0.4/dupeGuru_win32_4.0.4.exe#/dl.7z",
-            "hash": "6af5aa5b9ac0a2784abed63ca362872300a989bbcdec8998edbf65afd042f229",
+            "url": "https://github.com/arsenetar/dupeguru/releases/download/4.3.1/dupeGuru_win32_4.3.1.exe#/dl.7z",
+            "hash": "f7c537d5dd5ce36b9e6fe666e4ed994b91660db282cf9ab727ae41ce7aab1263",
             "bin": [
                 [
                     "dupeguru-win32.exe",

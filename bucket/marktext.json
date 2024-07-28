@@ -1,27 +1,22 @@
 {
-    "version": "0.16.2",
+    "version": "0.17.1",
     "description": "A simple and elegant markdown editor",
-    "homepage": "https://marktext.app",
+    "homepage": "https://www.marktext.cc",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/marktext/marktext/releases/download/v0.16.2/marktext-x64-win.zip",
-            "hash": "b2db981a6533a2a27ceda1d71337f7597589f6eb51edf18c624d63b18e6f1771"
+            "url": "https://github.com/marktext/marktext/releases/download/v0.17.1/marktext-x64-win.zip",
+            "hash": "2e5ffe0e6e77b8400f60dc0b38bf2615e558b2defaeda5f3ba4b2dc57ee2af15"
         },
         "32bit": {
-            "url": "https://github.com/marktext/marktext/releases/download/v0.16.2/marktext-ia32-win.zip",
-            "hash": "ea9138bd5e00167dd6062da067f1dab35eb9181a4bad958778c55e26fa52dad4"
+            "url": "https://github.com/marktext/marktext/releases/download/v0.17.1/marktext-ia32-win.zip",
+            "hash": "cb04c3dc7404223fd241c5479a65ff77c3923896e17a4848ad11a767164b90c7"
         }
     },
-    "bin": [
-        [
-            "Mark Text.exe",
-            "marktext"
-        ]
-    ],
+    "bin": "MarkText.exe",
     "shortcuts": [
         [
-            "Mark Text.exe",
+            "MarkText.exe",
             "Mark Text"
         ]
     ],

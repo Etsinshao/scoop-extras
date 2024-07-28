@@ -1,5 +1,5 @@
 {
-    "version": "5.51.1",
+    "version": "8.88",
     "description": "Documents to PDF scanner",
     "homepage": "https://www.softwareok.com/?seite=Microsoft/WinScan2PDF",
     "license": {
@@ -7,7 +7,7 @@
         "url": "https://www.softwareok.com/?seite=Microsoft/WinScan2PDF/Eula"
     },
     "url": "https://www.softwareok.com/Download/WinScan2PDF_Portable.zip",
-    "hash": "23912f1fd2771d15f68f56c59cba9af572d1ec42d88f0887a4f06ceb1a6b0e51",
+    "hash": "5fd0925b6358770e8b9add1ca15d576011dbaf938fa561afe32f6447a23fd92f",
     "pre_install": "if (-not (Test-Path \"$persist_dir\\WinScan2PDF_p.ini\")) { New-Item \"$dir\\WinScan2PDF_p.ini\" | Out-Null }",
     "bin": [
         [
@@ -22,6 +22,10 @@
         ]
     ],
     "persist": "WinScan2PDF_p.ini",
+    "checkver": {
+        "url": "https://www.softwareok.com/?seite=Microsoft/WinScan2PDF/History",
+        "regex": "version ([\\d.]+)"
+    },
     "autoupdate": {
         "url": "https://www.softwareok.com/Download/WinScan2PDF_Portable.zip",
         "hash": {

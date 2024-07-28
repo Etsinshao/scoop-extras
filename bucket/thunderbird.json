@@ -1,29 +1,52 @@
 {
-    "version": "78.1.0",
+    "version": "115.13.0",
     "description": "A free email application that’s easy to set up and customize.",
     "homepage": "https://www.thunderbird.net",
     "license": "MPL-2.0",
+    "notes": [
+        "To set profile 'Scoop' as *DEFAULT*, or profiles/settings was lost after update:",
+        "  - Run 'Thunderbird Profile Manager', choose 'Scoop' then click 'Start Thunderbird'.",
+        "  - Visit 'about:profiles' page in Thunderbird to check *DEFAULT* profile.",
+        "For details: https://support.mozilla.org/en-US/kb/profile-manager-create-and-remove-thunderbird-profiles"
+    ],
     "architecture": {
         "64bit": {
-            "url": "https://archive.mozilla.org/pub/thunderbird/releases/78.1.0/win64/en-US/Thunderbird%20Setup%2078.1.0.exe#/dl.7z",
-            "hash": "sha512:62056c5d30f0cffcd6cbde6df78f881fb27d71395cd559ed1d8c86eebe5ca9a9a29b426f965f4f73712cfa4d2523806781d763c20e28ef0144860d7d58a73827"
+            "url": "https://archive.mozilla.org/pub/thunderbird/releases/115.13.0/win64/en-US/Thunderbird%20Setup%20115.13.0.exe#/dl.7z",
+            "hash": "sha512:ce1bd50ab811780b8325be655a6e156f061a10cf87a256ce09e20ef4b6d27abb0986df2ea2d95aa99bd22f84bb7a705bdfe65adb78adca00dc187432ca233f6f"
         },
         "32bit": {
-            "url": "https://archive.mozilla.org/pub/thunderbird/releases/78.1.0/win32/en-US/Thunderbird%20Setup%2078.1.0.exe#/dl.7z",
-            "hash": "sha512:2586db46342a6fa9f602a44e247e339e2770287426390404411ab81137615e3a226ae4d528dc553e9034ffcebb7c76e738636ffa6c18ffa7a238d7c64c16f900"
+            "url": "https://archive.mozilla.org/pub/thunderbird/releases/115.13.0/win32/en-US/Thunderbird%20Setup%20115.13.0.exe#/dl.7z",
+            "hash": "sha512:5ee73faa5010d3a5b579ac9f45ce213f810132112488aa18dd4119cab4ca17af500c68b5f90b0e6bd407c47bc1044696f328c58bad18476066449754e7afac60"
         }
     },
     "extract_dir": "core",
+    "post_install": [
+        "thunderbird -CreateProfile \"Scoop $persist_dir\\profile\"",
+        "$Addition = \"$persist_dir\\addition\"",
+        "if (Test-Path $Addition) {",
+        "  info 'Copying additional items...'",
+        "  Copy-Item -Path $Addition\\* -Destination $dir -Force -Recurse -ErrorAction SilentlyContinue",
+        "}"
+    ],
     "bin": "thunderbird.exe",
     "shortcuts": [
         [
             "thunderbird.exe",
-            "Mozilla Thunderbird"
+            "Thunderbird"
+        ],
+        [
+            "thunderbird.exe",
+            "Thunderbird Profile Manager",
+            "-P"
         ]
     ],
+    "persist": [
+        "distribution",
+        "profile"
+    ],
     "checkver": {
-        "url": "https://www.thunderbird.net/thunderbird/all/",
-        "regex": "thunderbird/([\\d.]+)/"
+        "url": "https://product-details.mozilla.org/1.0/thunderbird_versions.json",
+        "jsonpath": "$.LATEST_THUNDERBIRD_VERSION"
     },
     "autoupdate": {
         "architecture": {

@@ -1,19 +1,19 @@
 {
-    "version": "2.3.9",
+    "version": "4.3.2",
     "description": "The automated Usenet download tool",
     "homepage": "https://sabnzbd.org",
     "license": "GPL-2.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/sabnzbd/sabnzbd/releases/download/2.3.9/SABnzbd-2.3.9-win64-bin.zip",
-            "hash": "83c5f08d8e3180b59a77a32517ae420a6fc145fea5619235924b83119f599c0d"
+            "url": "https://github.com/sabnzbd/sabnzbd/releases/download/4.3.2/SABnzbd-4.3.2-win64-bin.zip",
+            "hash": "e6ee4ce0debb4bac5ecccb0426a0d19b64e033cd59aa28bfa42ce3b240b45607"
         },
         "32bit": {
-            "url": "https://github.com/sabnzbd/sabnzbd/releases/download/2.3.9/SABnzbd-2.3.9-win32-bin.zip",
-            "hash": "15892bc89e521a9aa42bdc8834b03aef128069a549efd4d4933a55862dc1d2ef"
+            "url": "https://github.com/sabnzbd/sabnzbd/releases/download/4.3.2/SABnzbd-4.3.2-win32-bin.zip",
+            "hash": "33c895435a926cff7ed112cc31c3593040ab53e57fbc5f488d2ed8faf46c1b39"
         }
     },
-    "extract_dir": "SABnzbd-2.3.9",
+    "extract_dir": "SABnzbd-4.3.2",
     "bin": [
         "SABnzbd-console.exe",
         [

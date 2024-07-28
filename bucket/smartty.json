@@ -1,13 +1,14 @@
 {
-    "homepage": "http://smartty.sysprogs.com/",
-    "description": "SmarTTY is a free multi-tabbed SSH client that supports X11, copying files and directories with SCP on-the-fly and editing files in-place.",
+    "##": "TODO: Migrate from nested PortableSmartty folder",
+    "version": "3.3",
+    "description": "Multi-tabbed SSH client that supports X11, copying files and directories with SCP on-the-fly and editing files in-place.",
+    "homepage": "https://sysprogs.com/SmarTTY/",
     "license": {
         "identifier": "Freeware",
-        "url": "http://smartty.sysprogs.com/download/"
+        "url": "https://sysprogs.com/SmarTTY/download/"
     },
-    "version": "3.1",
-    "url": "http://sysprogs.com/getfile/410/PortableSmartty-3.1.7z",
-    "hash": "2f896220345823a95e26789125638e59554bcc1dea166c8329d034328baaa905",
+    "url": "https://sysprogs.com/getfile/1838/PortableSmarTTY-3.3.7z",
+    "hash": "a042cbb4d58cda5e67c4c1dcc9cecc768445f5434ee7b7a936619413e7388bbd",
     "bin": "PortableSmartty\\SmarTTY.exe",
     "shortcuts": [
         [
@@ -21,9 +22,9 @@
     ],
     "checkver": {
         "url": "https://sysprogs.com/SmarTTY/portable/",
-        "re": "PortableSmartty-([\\d.]+).7z"
+        "regex": "/(?<id>\\d+)/PortableSmarTTY-([\\d.]+)\\.7z"
     },
     "autoupdate": {
-        "url": "http://sysprogs.com/getfile/410/PortableSmartty-$version.7z"
+        "url": "https://sysprogs.com/getfile/$matchId/PortableSmarTTY-$version.7z"
     }
 }

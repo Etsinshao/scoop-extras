@@ -1,42 +1,57 @@
 {
-    "version": "5.1.6_1",
+    "version": "8.0.4",
     "description": "Electronics Design Automation Suite",
-    "homepage": "https://kicad-pcb.org",
+    "homepage": "https://www.kicad.org",
     "license": "GPL-3.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://kicad-downloads.s3.cern.ch/windows/stable/kicad-5.1.6_1-x86_64.exe#/dl.7z",
-            "hash": "831d99141ccbbd491f765c08a7eafb6a385c4bbd306026eca2b4402ed8325bd2"
-        },
-        "32bit": {
-            "url": "https://kicad-downloads.s3.cern.ch/windows/stable/kicad-5.1.6_1-i686.exe#/dl.7z",
-            "hash": "d2f64d261a224d7bf348129d51605419d6226952d5d205df627ee8ca5bd4390d"
+            "url": "https://github.com/KiCad/kicad-source-mirror/releases/download/8.0.4/kicad-8.0.4-x86_64.exe#/dl.7z",
+            "hash": "75bdfc49bbe582cb861662b448388efb8ecf6583a48c8da23b3125ad44de65ff"
         }
     },
-    "pre_install": "Remove-Item \"$dir\\`$*\", \"$dir\\Uninst*\" -Recurse",
-    "bin": "bin\\kicad.exe",
+    "pre_install": "Remove-Item \"$dir\\`$*\" -Recurse",
+    "bin": "bin\\kicad-cli.exe",
     "shortcuts": [
         [
             "bin\\kicad.exe",
             "KiCad"
+        ],
+        [
+            "bin\\eeschema.exe",
+            "Schematic Editor"
+        ],
+        [
+            "bin\\pcbnew.exe",
+            "PCB Editor"
+        ],
+        [
+            "bin\\gerbview.exe",
+            "Gerber Viewer"
+        ],
+        [
+            "bin\\pcb_calculator.exe",
+            "Calculator Tools"
+        ],
+        [
+            "bin\\pl_editor.exe",
+            "Drawing Sheet Editor"
+        ],
+        [
+            "bin\\bitmap2component.exe",
+            "Image Converter"
+        ],
+        [
+            "bin\\kicad-cmd.bat",
+            "KiCad Command Prompt"
         ]
     ],
-    "env_set": {
-        "KICAD_PTEMPLATES": "$dir\\share\\kicad\\template\\",
-        "KISYS3DMOD": "$dir\\share\\kicad\\modules\\packages3d\\",
-        "KISYSMOD": "$dir\\share\\kicad\\modules\\"
-    },
     "checkver": {
-        "url": "https://kicad-pcb.org/download/windows/",
-        "regex": "kicad-([\\d._]+)-"
+        "github": "https://github.com/KiCad/kicad-source-mirror/"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://kicad-downloads.s3.cern.ch/windows/stable/kicad-$version-x86_64.exe#/dl.7z"
-            },
-            "32bit": {
-                "url": "https://kicad-downloads.s3.cern.ch/windows/stable/kicad-$version-i686.exe#/dl.7z"
+                "url": "https://github.com/KiCad/kicad-source-mirror/releases/download/$version/kicad-$version-x86_64.exe#/dl.7z"
             }
         }
     }

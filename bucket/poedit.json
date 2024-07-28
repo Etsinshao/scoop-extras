@@ -1,10 +1,10 @@
 {
-    "version": "2.4",
-    "homepage": "https://poedit.net",
+    "version": "3.4.4",
     "description": "Gettext translations editor.",
+    "homepage": "https://poedit.net",
     "license": "MIT",
-    "url": "https://download.poedit.net/Poedit-2.4-setup.exe",
-    "hash": "79147ee032b8d61d1655addb9cd9d61f0c2fd6e135cb48b0014f3f8cc011432c",
+    "url": "https://download.poedit.net/Poedit-3.4.4-setup.exe",
+    "hash": "a27efd3ce1bd4b18892e894a53de60b65f13892fa3ba8b8b1c146702a54a26ee",
     "innosetup": true,
     "bin": "Poedit.exe",
     "shortcuts": [
@@ -13,6 +13,7 @@
             "Poedit"
         ]
     ],
+    "post_install": "Get-ChildItem \"$dir\\Resources\" 'Poedit,1.ico' | Rename-Item -NewName 'Poedit.ico'",
     "checkver": {
         "url": "https://poedit.net/download",
         "regex": "Poedit-([\\d.]+)-setup"

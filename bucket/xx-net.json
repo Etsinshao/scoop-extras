@@ -1,14 +1,14 @@
 {
-    "version": "4.4.0",
+    "version": "5.10.7",
     "description": "An HTTP/HTTPS MITM proxy to circumvent Internet censorship, successor of GoAgent",
     "homepage": "https://github.com/XX-net/XX-Net",
     "license": "BSD-2-Clause",
-    "url": "https://github.com/XX-net/XX-Net/releases/download/4.4.0/XX-Net-Windows-4.4.0.7z",
-    "hash": "3bfafcbf32b54022b661309026a9fb611b3b659150f6126cfb9b531d9da9d542",
+    "url": "https://github.com/XX-net/XX-Net/releases/download/5.10.7/XX-Net-win10-5.10.7.zip",
+    "hash": "0b0e9b4d36f666a828782105e8054c793833a40a97ac23020130288aacc55ff2",
     "extract_dir": "XX-Net",
     "bin": [
         [
-            "start.vbs",
+            "start.bat",
             "XX-Net"
         ]
     ],
@@ -23,6 +23,6 @@
     "persist": "data",
     "checkver": "github",
     "autoupdate": {
-        "url": "https://github.com/XX-net/XX-Net/releases/download/$version/XX-Net-Windows-$version.7z"
+        "url": "https://github.com/XX-net/XX-Net/releases/download/$version/XX-Net-win10-$version.zip"
     }
 }

@@ -1,10 +1,14 @@
 {
-    "version": "37.1-3",
-    "description": "Simple, open source, cross-platform Go IDE.",
+    "version": "38.3",
+    "description": "Simple, open source, cross-platform Go IDE",
     "homepage": "http://liteide.org",
     "license": "LGPL-2.1-only",
-    "url": "https://github.com/visualfc/liteide/releases/download/x37.1/liteidex37.1-3.windows-qt5.9.5.zip",
-    "hash": "bb1f15a9def9195d92b109fbfe898f04df3b177785cf8f00187e44485f9d2e89",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/visualfc/liteide/releases/download/x38.3/liteidex38.3-win64-qt5.15.2.zip",
+            "hash": "83e610976f5503a9a9fffe32a4883eeae74685e339c69f388403ffec6cb409b3"
+        }
+    },
     "extract_dir": "liteide",
     "bin": "bin\\liteide.exe",
     "shortcuts": [
@@ -14,10 +18,15 @@
         ]
     ],
     "checkver": {
-        "github": "https://github.com/visualfc/liteide",
-        "regex": "liteidex([\\d.-]+)\\.windows-qt(?<qtver>[\\d.]+)\\.zip"
+        "url": "https://api.github.com/repositories/6753728/releases/latest",
+        "jsonpath": "$.assets..browser_download_url",
+        "regex": "liteidex([\\d.-]+)-win64-qt(?<qt>[\\d.]+)\\.zip"
     },
     "autoupdate": {
-        "url": "https://github.com/visualfc/liteide/releases/download/x$matchHead/liteidex$version.windows-qt$matchQtver.zip"
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/visualfc/liteide/releases/download/x$version/liteidex$version-win64-qt$matchQt.zip"
+            }
+        }
     }
 }

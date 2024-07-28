@@ -1,19 +1,16 @@
 {
-    "version": "6.3.1",
+    "version": "6.21.3",
     "description": "High performance RandomX, CryptoNight, AstroBWT and Argon2 CPU/GPU miner",
     "homepage": "https://xmrig.com",
     "license": "GPL-3.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/xmrig/xmrig/releases/download/v6.3.1/xmrig-6.3.1-msvc-win64.zip",
-            "hash": "e93540a4e2bd033ee4bc1394d4a2af77e701bb14724983893849a34dfce3ee21"
+            "url": "https://github.com/xmrig/xmrig/releases/download/v6.21.3/xmrig-6.21.3-msvc-win64.zip",
+            "hash": "713263085499ae626a6148fab67932c9a69611b21ac3d04cf52a5e23495f902e"
         }
     },
-    "extract_dir": "xmrig-6.3.1",
-    "bin": [
-        "xmrig.exe",
-        "xmrig-notls.exe"
-    ],
+    "extract_dir": "xmrig-6.21.3",
+    "bin": "xmrig.exe",
     "persist": "config.json",
     "checkver": {
         "github": "https://github.com/xmrig/xmrig"

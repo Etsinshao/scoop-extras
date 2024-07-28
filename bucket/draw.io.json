@@ -1,15 +1,23 @@
 {
-    "version": "13.5.7",
+    "version": "24.7.5",
     "description": "Professional diagramming",
-    "homepage": "https://www.draw.io",
+    "homepage": "https://www.diagrams.net",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v13.5.7/draw.io-13.5.7.exe#/dl.7z",
-            "hash": "sha512:4ea38bab00bc8ee2f1ca0ec3f01f40f4521ac801740a438b54901b76129fbbd14247a9a866d92d2b6f3e6ff42105056e7be2ea05ca4c782da58c2da5b7192424",
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v24.7.5/draw.io-24.7.5-windows-installer.exe#/dl.7z",
+            "hash": "49fe13e576710ca4adb647cddc17af374c7fbaf29fcc9b7eed897817fd8c2e60",
             "pre_install": [
                 "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
-                "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninstall*\" -Recurse"
+                "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse"
+            ]
+        },
+        "32bit": {
+            "url": "https://github.com/jgraph/drawio-desktop/releases/download/v24.7.5/draw.io-ia32-24.7.5-windows-32bit-installer.exe#/dl.7z",
+            "hash": "2706f8db3ccde864d759b98d3996328c04a4ceb91d9fa717dfdd3302b41124c8",
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-32.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse"
             ]
         }
     },
@@ -26,12 +34,15 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/jgraph/drawio-desktop/releases/download/v$version/draw.io-$version.exe#/dl.7z"
+                "url": "https://github.com/jgraph/drawio-desktop/releases/download/v$version/draw.io-$version-windows-installer.exe#/dl.7z"
+            },
+            "32bit": {
+                "url": "https://github.com/jgraph/drawio-desktop/releases/download/v$version/draw.io-ia32-$version-windows-32bit-installer.exe#/dl.7z"
             }
         },
         "hash": {
-            "url": "$baseurl/latest.yml",
-            "regex": "sha512: $base64"
+            "url": "$baseurl/Files-SHA256-Hashes.txt",
+            "regex": "$basename\\s*?$sha256"
         }
     }
 }

@@ -1,5 +1,5 @@
 {
-    "version": "2.1.29",
+    "version": "24.06.3",
     "description": "Powerful and intelligent flash cards",
     "homepage": "https://apps.ankiweb.net",
     "license": "AGPL-3.0-only",
@@ -8,12 +8,8 @@
     },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/ankitects/anki/releases/download/2.1.29/anki-2.1.29-windows.exe#/dl.7z",
-            "hash": "0808d4686dbae237099b0be5d391d4eff9610726c902f8c827f8ab4519f5dcfc"
-        },
-        "32bit": {
-            "url": "https://github.com/ankitects/anki/releases/download/2.1.29/anki-2.1.29-windows-alternate.exe#/dl.7z",
-            "hash": "536105d89edcd1f7aea8b92c894d8ca1bb6977f7e85aa7d08a2f8a7e032a56fe"
+            "url": "https://github.com/ankitects/anki/releases/download/24.06.3/anki-24.06.3-windows-qt6.exe#/dl.7z",
+            "hash": "e11ade8b94dbb5374102669ea589bc1072ea07b93897f3b36fa045f5192ef0ba"
         }
     },
     "pre_install": [
@@ -39,16 +35,12 @@
     ],
     "persist": "data",
     "checkver": {
-        "url": "https://github.com/ankitects/anki/releases",
-        "regex": "anki-([\\d.]+)-windows\\.exe"
+        "github": "https://github.com/ankitects/anki"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/ankitects/anki/releases/download/$version/anki-$version-windows.exe#/dl.7z"
-            },
-            "32bit": {
-                "url": "https://github.com/ankitects/anki/releases/download/$version/anki-$version-windows-alternate.exe#/dl.7z"
+                "url": "https://github.com/ankitects/anki/releases/download/$version/anki-$version-windows-qt6.exe#/dl.7z"
             }
         },
         "hash": {

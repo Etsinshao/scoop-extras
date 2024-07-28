@@ -1,13 +1,21 @@
 {
+    "version": "5.0.7",
+    "description": "A text editor for developers",
     "homepage": "http://www.pspad.com",
-    "description": "A text editor for developers.",
     "license": {
         "identifier": "Freeware",
         "url": "https://www.pspad.com/en/licence.php"
     },
-    "version": "5.0.3",
-    "url": "https://www.pspad.com/files/pspad/pspad503en.zip",
-    "hash": "f3ae816d2c824358c6fc25580cf0bf125137ff51d4d6ea3df643f763bda15e6b",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.fosshub.com/PSPad.html/pspad507en_x64.zip",
+            "hash": "d716746a074ff98b94bd5ba5a439446111bc8b280153202f3909e7cc33b10ad7"
+        },
+        "32bit": {
+            "url": "https://www.fosshub.com/PSPad.html/pspad507en.zip",
+            "hash": "8ef79921d6337c6f2b8b8c86749e1bf1ff45a21e8347408045094e7e319f0d61"
+        }
+    },
     "bin": "PSPad.exe",
     "shortcuts": [
         [
@@ -17,10 +25,13 @@
     ],
     "checkver": "Full version:\\D*([\\d.]+)",
     "autoupdate": {
-        "url": "https://www.pspad.com/files/pspad/pspad$cleanVersionen.zip",
-        "hash": {
-            "url": "https://www.pspad.com/en/download.php",
-            "find": "([a-fA-F0-9]{32}).*(?:$basename)"
+        "architecture": {
+            "64bit": {
+                "url": "https://www.fosshub.com/PSPad.html/pspad$cleanVersionen_x64.zip"
+            },
+            "32bit": {
+                "url": "https://www.fosshub.com/PSPad.html/pspad$cleanVersionen.zip"
+            }
         }
     }
 }

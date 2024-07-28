@@ -1,16 +1,16 @@
 {
-    "version": "0.3.33",
+    "version": "0.3.40",
     "description": "Hash calculator with unicode support",
     "homepage": "https://ov2.eu/programs/rapidcrc-unicode",
     "license": "GPL-2.0-only",
     "architecture": {
         "64bit": {
-            "url": "http://dl.ov2.eu/programs/rapidcrc-unicode/rapidcrc_0.3.33_x64.rar",
-            "hash": "9f555b350eee87555a751fa6408f182b89a052771d8ab7c9e5f8fd13508f0ed9"
+            "url": "http://dl.ov2.eu/programs/rapidcrc-unicode/rapidcrc_0.3.40_x64.zip",
+            "hash": "e4744ee424f2b2c82103c9169bda31f35ab9836c86ee872645275a1a56d25193"
         },
         "32bit": {
-            "url": "http://dl.ov2.eu/programs/rapidcrc-unicode/rapidcrc_0.3.33.rar",
-            "hash": "8401f0f9e2501e3a1d93b6903e8e3539834752e201594b30befe355a9c376a7a"
+            "url": "http://dl.ov2.eu/programs/rapidcrc-unicode/rapidcrc_0.3.40.zip",
+            "hash": "b3110d791d0dc26b199f62bb3fb26b5f21230bad116c11e8d5f024c5e5c52f43"
         }
     },
     "shortcuts": [
@@ -23,10 +23,10 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "http://dl.ov2.eu/programs/rapidcrc-unicode/rapidcrc_$version_x64.rar"
+                "url": "http://dl.ov2.eu/programs/rapidcrc-unicode/rapidcrc_$version_x64.zip"
             },
             "32bit": {
-                "url": "http://dl.ov2.eu/programs/rapidcrc-unicode/rapidcrc_$version.rar"
+                "url": "http://dl.ov2.eu/programs/rapidcrc-unicode/rapidcrc_$version.zip"
             }
         }
     }

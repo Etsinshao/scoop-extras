@@ -1,31 +1,20 @@
 {
-    "version": "1.24.3",
+    "version": "1.32.1",
     "description": "Various systems emulator",
     "homepage": "https://mednafen.github.io/",
     "license": "GPL-2.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://mednafen.github.io/releases/files/mednafen-1.24.3-win64.zip",
-            "hash": "abcb3d6f037c4b69f82b6d1b01e80e727bfd6f54bdc9cae78a4167e1d9c6240c"
+            "url": "https://mednafen.github.io/releases/files/mednafen-1.32.1-win64.zip",
+            "hash": "3b680ce6b50a17bcbb2ac611e38962ee469e399b412cc435ffacd6e7f6fb1982"
         },
         "32bit": {
-            "url": "https://mednafen.github.io/releases/files/mednafen-1.24.3-win32.zip",
-            "hash": "9486b5c7e26e146b5142f9aed1d204441ab7395edbe92f697376bb3e6a9a9467"
+            "url": "https://mednafen.github.io/releases/files/mednafen-1.32.1-win32.zip",
+            "hash": "ca8e5cb53c2aedb347ab0358a1be496cfc4a51fc2e444648fa430365289c82e7"
         }
     },
     "pre_install": "if (-not (Test-Path \"$persist_dir\\mednafen.cfg\")) { New-Item \"$dir\\mednafen.cfg\" | Out-Null }",
     "bin": "mednafen.exe",
-    "persist": [
-        "cheats",
-        "firmware",
-        "mcm",
-        "mcs",
-        "palettes",
-        "pgconfig",
-        "sav",
-        "snaps",
-        "mednafen.cfg"
-    ],
     "checkver": {
         "url": "https://mednafen.github.io/documentation/ChangeLog.txt",
         "regex": "--\\s+([\\d.]+):\\s+--"

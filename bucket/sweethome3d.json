@@ -1,17 +1,20 @@
 {
+    "version": "7.4",
+    "description": "A free interior design application that helps you draw the plan of your house, arrange furniture on it and visit the results in 3D",
     "homepage": "http://www.sweethome3d.com/",
-    "description": "A free interior design application that helps you draw the plan of your house, arrange furniture on it and visit the results in 3D.",
     "license": "GPL-2.0-or-later",
-    "version": "6.4",
-    "extract_dir": "SweetHome3D-6.4-portable",
-    "persist": [
-        "data\\preferences.xml",
-        "data\\plugins"
-    ],
+    "url": "https://downloads.sourceforge.net/project/sweethome3d/SweetHome3D/SweetHome3D-7.4/SweetHome3D-7.4-portable.7z#/dl.7z_",
+    "hash": "sha1:78f15e3ca9f1cea03ef7fadc09f369fd53b711f6",
+    "installer": {
+        "script": [
+            "$switches = '-xr!LICENSE -xr!ASSEMBLY_EXCEPTION -xr!ADDITIONAL_LICENSE_INFO -xr!cldr.md'",
+            "Expand-7zipArchive \"$dir\\$fname\" \"$dir\" -Switches $switches -ExtractDir \"SweetHome3D-$version-portable\" -Removal",
+            "# A temporary workaround to bypass 'symbolic link' files that are not supported without Developer mode, no intention to violate any legal terms"
+        ]
+    },
+    "post_install": "if (!(Test-Path \"$persist_dir\\data\\preferences.xml\")) { New-Item \"$dir\\data\\preferences.xml\" | Out-Null }",
     "architecture": {
         "64bit": {
-            "url": "https://downloads.sourceforge.net/project/sweethome3d/SweetHome3D/SweetHome3D-6.4/SweetHome3D-6.4-portable.7z",
-            "hash": "sha1:2c742b629cdd9a054c035e91b09cc0d7d568b463",
             "bin": [
                 [
                     "SweetHome3D-windows-x64.exe",
@@ -26,8 +29,6 @@
             ]
         },
         "32bit": {
-            "url": "https://downloads.sourceforge.net/project/sweethome3d/SweetHome3D/SweetHome3D-6.4/SweetHome3D-6.4-portable.7z",
-            "hash": "sha1:2c742b629cdd9a054c035e91b09cc0d7d568b463",
             "bin": [
                 [
                     "SweetHome3D-windows-x86.exe",
@@ -42,19 +43,17 @@
             ]
         }
     },
+    "persist": [
+        "data\\preferences.xml",
+        "data\\plugins",
+        "data\\furniture",
+        "data\\textures"
+    ],
     "checkver": {
         "url": "http://www.sweethome3d.com/SweetHome3DUpdates.xml",
-        "re": "id=\"SweetHome3D#Portable\"\\s+version=\"([\\d.]+)\""
+        "regex": "id=\"SweetHome3D#Portable\"\\s+version=\"([\\d.]+)\""
     },
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://downloads.sourceforge.net/project/sweethome3d/SweetHome3D/SweetHome3D-$version/SweetHome3D-$version-portable.7z"
-            },
-            "32bit": {
-                "url": "https://downloads.sourceforge.net/project/sweethome3d/SweetHome3D/SweetHome3D-$version/SweetHome3D-$version-portable.7z"
-            }
-        },
-        "extract_dir": "SweetHome3D-$version-portable"
+        "url": "https://downloads.sourceforge.net/project/sweethome3d/SweetHome3D/SweetHome3D-$version/SweetHome3D-$version-portable.7z#/dl.7z_"
     }
 }

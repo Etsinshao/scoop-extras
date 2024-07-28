@@ -1,13 +1,28 @@
 {
-    "version": "0.5.0",
+    "version": "0.13.2",
     "description": "GPU-accelerated terminal emulator",
-    "homepage": "https://github.com/jwilm/alacritty",
+    "homepage": "https://github.com/alacritty/alacritty",
     "license": "Apache-2.0",
+    "notes": [
+        "Add Open with Alacritty as a context menu option by running:",
+        "reg import \"$dir\\install-context.reg\""
+    ],
     "suggest": {
-        "vcredist": "extras/vcredist2017"
+        "vcredist": "extras/vcredist2022"
     },
-    "url": "https://github.com/jwilm/alacritty/releases/download/v0.5.0/Alacritty-v0.5.0-windows-portable.zip",
-    "hash": "b44544a7c8c5371f328be81b5dd8d108c25766465821fa76b043e3b38f4c58a5",
+    "url": "https://github.com/alacritty/alacritty/releases/download/v0.13.2/Alacritty-v0.13.2-portable.exe#/alacritty.exe",
+    "hash": "909f51405aac3b6fd0e978d66abba9f888a4180f86799a266fb5bda3f3dfa923",
+    "post_install": [
+        "$alacrittyPath = \"$dir\\alacritty.exe\".Replace('\\', '\\\\')",
+        "'install-context', 'uninstall-context' | ForEach-Object {",
+        "    if (Test-Path \"$bucketsdir\\extras\\scripts\\$app\\$_.reg\") {",
+        "        $content = Get-Content \"$bucketsdir\\extras\\scripts\\$app\\$_.reg\"",
+        "        $content = $content.Replace('$alacrittyPath', $alacrittyPath)",
+        "        if ($global) { $content = $content.Replace('HKEY_CURRENT_USER', 'HKEY_LOCAL_MACHINE') }",
+        "        Set-Content \"$dir\\$_.reg\" $content -Encoding Ascii -Force",
+        "    }",
+        "}"
+    ],
     "bin": "alacritty.exe",
     "shortcuts": [
         [
@@ -16,8 +31,9 @@
             "--working-directory \"%USERPROFILE%\""
         ]
     ],
+    "pre_uninstall": "if ($cmd -eq 'uninstall') { reg import \"$dir\\uninstall-context.reg\" *>nul }",
     "checkver": "github",
     "autoupdate": {
-        "url": "https://github.com/jwilm/alacritty/releases/download/v$version/Alacritty-v$version-windows-portable.zip"
+        "url": "https://github.com/alacritty/alacritty/releases/download/v$version/Alacritty-v$version-portable.exe#/alacritty.exe"
     }
 }

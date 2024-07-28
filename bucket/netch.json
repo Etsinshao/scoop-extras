@@ -1,17 +1,21 @@
 {
-    "version": "1.4.11",
+    "version": "1.9.7",
     "description": "Game accelerator",
     "homepage": "https://github.com/NetchX/Netch",
     "license": "MIT",
+    "suggest": {
+        ".NET Desktop Runtime": "extras/windowsdesktop-runtime"
+    },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/NetchX/Netch/releases/download/1.4.11/Netch.zip",
-            "hash": "3ed475e66ef58ae1d269618be788c7bdc156b2e7881ff876c3debf63b8539574"
+            "url": "https://github.com/NetchX/Netch/releases/download/1.9.7/Netch.7z",
+            "hash": "692aa6ddd20ed98cf9dd1c51c0495206c8ea3aeef9e9f50fb1de94eca28be5a8"
         }
     },
+    "extract_dir": "Netch",
     "pre_install": [
         "ensure \"$dir\\data\" | Out-Null",
-        "if (!(Test-Path \"$persist_dir\\data\\settings.json\")) { Set-Content \"$dir\\data\\settings.json\" '{ \"CheckUpdateWhenOpened\": false }' -Encoding Ascii -Force }"
+        "if (!(Test-Path \"$persist_dir\\data\\settings.json\")) { Set-Content \"$dir\\data\\settings.json\" '{ \"CheckUpdateWhenOpened\": false, \"Server\": [] }' -Encoding Ascii -Force }"
     ],
     "bin": "Netch.exe",
     "shortcuts": [
@@ -29,7 +33,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/NetchX/Netch/releases/download/$version/Netch.zip"
+                "url": "https://github.com/NetchX/Netch/releases/download/$version/Netch.7z"
             }
         },
         "hash": {

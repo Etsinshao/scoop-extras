@@ -1,29 +1,32 @@
 {
-    "version": "0.12.2",
-    "description": "A desktop client for IPFS.",
-    "homepage": "https://github.com/ipfs-shipyard/ipfs-desktop",
+    "version": "0.37.0",
+    "description": "A desktop client for IPFS",
+    "homepage": "https://ipfs.tech/",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/ipfs-shipyard/ipfs-desktop/releases/download/v0.12.2/ipfs-desktop-setup-0.12.2.exe#/dl.7z",
-            "hash": "sha512:a641ed80534b9c303b3ca1cf105150e5c6e1010cefb4b1a9319c7c18b33f67708f947e3ce770e5a7d6c08dd5b4333966a7195fd3a7caea93219060449097f082",
+            "url": "https://github.com/ipfs/ipfs-desktop/releases/download/v0.37.0/ipfs-desktop-setup-0.37.0.exe#/dl.7z",
+            "hash": "sha512:debed906f1f5a1bf06c8e248acfdf6605a3a02768ef3e5b75b4ffcce20d18102fa4a70945d362f4f9bfe9723a1f7801f5bd9a7bb1c127957ce82e5a13e9e7960",
             "pre_install": [
                 "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
-                "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse"
+                "Remove-Item \"$dir\\`$*\" -Recurse"
             ]
         }
     },
+    "bin": "resources\\app.asar.unpacked\\node_modules\\kubo\\kubo\\ipfs.exe",
     "shortcuts": [
         [
             "IPFS Desktop.exe",
             "IPFS Desktop"
         ]
     ],
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/ipfs/ipfs-desktop"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/ipfs-shipyard/ipfs-desktop/releases/download/v$version/ipfs-desktop-setup-$version.exe#/dl.7z"
+                "url": "https://github.com/ipfs/ipfs-desktop/releases/download/v$version/ipfs-desktop-setup-$version.exe#/dl.7z"
             }
         },
         "hash": {

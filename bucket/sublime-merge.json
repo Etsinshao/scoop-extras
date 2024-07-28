@@ -1,29 +1,49 @@
 {
-    "homepage": "https://www.sublimemerge.com/",
+    "version": "2096",
     "description": "A Git client with snappy UI, three-way merge tool, side-by-side diffs, syntax highlighting, and more.",
-    "version": "2027",
+    "homepage": "https://www.sublimemerge.com/",
     "license": {
         "identifier": "Shareware",
         "url": "https://www.sublimehq.com/eula"
     },
+    "notes": [
+        "Sublime Merge may be downloaded and evaluated for free, however a license must be purchased for continued use. There is currently no enforced time limit for the evaluation. For more information please see https://www.sublimemerge.com/",
+        "Add Sublime Merge as a context menu option by running:",
+        "reg import \"$dir\\install-context.reg\""
+    ],
     "architecture": {
         "64bit": {
-            "url": "https://download.sublimetext.com/sublime_merge_build_2027_x64.zip",
-            "hash": "8a4140ce70e6947f312bb322463d1ade6467f4ce87d664a56e25289fa1989578"
+            "url": "https://download.sublimetext.com/sublime_merge_build_2096_x64.zip",
+            "hash": "78e719a3390986b024359ce4d6b9792fe34f1be513ea2e38bb9e5ce53173ae40"
         }
     },
+    "post_install": [
+        "$exepath = \"$dir\\sublime_merge.exe\".Replace('\\', '\\\\')",
+        "'install-context.reg', 'uninstall-context.reg' | ForEach-Object {",
+        "    if (Test-Path \"$bucketsdir\\extras\\scripts\\$app\\$_\") {",
+        "        $content = Get-Content \"$bucketsdir\\extras\\scripts\\$app\\$_\"",
+        "        $content = $content.Replace('$sublime-merge-path', $exepath)",
+        "        if ($global) {",
+        "            $content = $content.Replace('HKEY_CURRENT_USER', 'HKEY_LOCAL_MACHINE')",
+        "        }",
+        "    }",
+        "    $content | Set-Content -Path \"$dir\\$_\" -Encoding ascii",
+        "}"
+    ],
     "bin": "smerge.exe",
-    "persist": "Data",
-    "notes": "Sublime Merge may be downloaded and evaluated for free, however a license must be purchased for continued use. There is currently no enforced time limit for the evaluation. For more information please see https://www.sublimemerge.com/",
     "shortcuts": [
         [
             "sublime_merge.exe",
             "Sublime Merge"
         ]
     ],
+    "persist": "Data",
+    "uninstaller": {
+        "script": "if ($cmd -eq 'uninstall') { reg import \"$dir\\uninstall-context.reg\" }"
+    },
     "checkver": {
-        "url": "https://www.sublimemerge.com/download",
-        "re": "Version:</i>\\sBuild\\s([\\d]+)</p>"
+        "url": "https://www.sublimemerge.com/updates/stable_update_check",
+        "jsonpath": "$.latest_version"
     },
     "autoupdate": {
         "architecture": {

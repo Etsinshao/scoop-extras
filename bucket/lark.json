@@ -1,0 +1,31 @@
+{
+    "version": "7.22.6",
+    "description": "The Next-Gen Collaboration Suite",
+    "homepage": "https://www.larksuite.com/",
+    "license": {
+        "identifier": "Proprietary",
+        "url": "https://www.larksuite.com/en_us/user-terms-of-service"
+    },
+    "notes": "Runtime data are stored in '%APPDATA%\\LarkInternational', and are not persisted by Scoop.",
+    "url": "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/d5035605/Lark-win32_ia32-7.22.6-signed.exe#/dl.7z",
+    "hash": "921b75ab083060005d4073ae3e803ab796a34103de16f6147dd4248c199f6510",
+    "extract_to": "app",
+    "shortcuts": [
+        [
+            "app/Lark.exe",
+            "Lark"
+        ]
+    ],
+    "checkver": {
+        "url": "https://www.larksuite.com/api/downloads",
+        "jsonpath": "$.versions.Windows.download_link",
+        "regex": "storage/(?<tag>[\\w.-/].*?)/(?<suffix>[\\w.-].*?)-([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/$matchTag/Lark-win32_ia32-$version-signed.exe#/dl.7z",
+        "hash": {
+            "url": "https://www.larksuite.com/api/downloads",
+            "jsonpath": "$.versions.Windows.hash"
+        }
+    }
+}

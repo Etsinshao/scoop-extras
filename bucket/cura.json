@@ -1,23 +1,20 @@
 {
-    "version": "4.6.2",
+    "version": "5.7.1",
     "description": "Model editing tools for 3D printing",
-    "homepage": "https://ultimaker.com/en/products/ultimaker-cura-software",
+    "homepage": "https://ultimaker.com/software/ultimaker-cura",
     "license": "LGPL-3.0-only",
-    "suggest": {
-        "Microsoft Visual C++ Redistributables 2015": "extras/vcredist2015"
-    },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Ultimaker/Cura/releases/download/4.6.2/Ultimaker_Cura-4.6.2-amd64.exe#/dl.7z",
-            "hash": "ca191fa64b8c858acc533cb30dd6cbe0ce7fd29513ff089f41d5c85a734a2590"
+            "url": "https://github.com/Ultimaker/Cura/releases/download/5.7.1/Ultimaker-Cura-5.7.1-win64-X64.exe#/dl.7z",
+            "hash": "7059bad95efc47579e2af6b4f6d6127d8aa65cd722f9078dbc4002beb07287bd"
         }
     },
     "pre_install": "Remove-Item \"$dir\\Uninstall*\", \"$dir\\`$*\", \"$dir\\vcredist_*.exe\" -Recurse",
-    "bin": "curacli.exe",
+    "bin": "CuraEngine.exe",
     "shortcuts": [
         [
-            "cura.exe",
-            "Cura"
+            "Ultimaker-Cura.exe",
+            "Ultimaker Cura"
         ]
     ],
     "checkver": {
@@ -26,7 +23,7 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/Ultimaker/Cura/releases/download/$version/Ultimaker_Cura-$version-amd64.exe#/dl.7z"
+                "url": "https://github.com/Ultimaker/Cura/releases/download/$version/Ultimaker-Cura-$version-win64-X64.exe#/dl.7z"
             }
         }
     }

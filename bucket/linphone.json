@@ -1,10 +1,14 @@
 {
-    "version": "4.1.1",
+    "version": "5.2.6",
     "description": "A free VoIP and video softphone based on the SIP protocol.",
     "homepage": "https://linphone.org/",
     "license": "GPL-2.0-only",
-    "url": "https://linphone.org/sites/default/files/linphone-4.1.1-win32.exe#/dl.7z",
-    "hash": "bb7b7b9b6b620bd15740cce9e176f3342f6c8b1527830697a608e6feff08bdf3",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.linphone.org/releases/windows/app/Linphone-5.2.6-win64.exe#/dl.7z",
+            "hash": "e6feb3814f3caafc4f5df9cde2f7feb352e76f8ff6ffd91636a645d33336d7ff"
+        }
+    },
     "bin": "bin\\linphone.exe",
     "shortcuts": [
         [
@@ -12,11 +16,16 @@
             "Linphone"
         ]
     ],
-    "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninstall.exe.nsis\" -Recurse",
+    "pre_install": "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
     "checkver": {
-        "github": "https://github.com/BelledonneCommunications/linphone-desktop"
+        "url": "https://www.linphone.org/releases/windows/RELEASE",
+        "regex": "^([\\d.]+)\\s+"
     },
     "autoupdate": {
-        "url": "https://linphone.org/sites/default/files/linphone-$version-win32.exe#/dl.7z"
+        "architecture": {
+            "64bit": {
+                "url": "https://www.linphone.org/releases/windows/app/Linphone-$version-win64.exe#/dl.7z"
+            }
+        }
     }
 }

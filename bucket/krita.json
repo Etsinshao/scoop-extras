@@ -1,18 +1,15 @@
 {
-    "version": "4.3.0",
-    "description": "A free digital painting application.",
+    "version": "5.2.3",
+    "description": "A free digital painting application",
     "homepage": "https://krita.org/",
     "license": "GPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://download.kde.org/stable/krita/4.3.0/krita-x64-4.3.0-setup.exe#/dl.7z",
-            "hash": "39346273dfa9397af61f4caf779e2d3d5d59a43d67248bc827b6704a08e9e59f"
-        },
-        "32bit": {
-            "url": "https://download.kde.org/stable/krita/4.3.0/krita-x86-4.3.0-setup.exe#/dl.7z",
-            "hash": "15018230d2fd5caa8a3778b1ff88b0582d93255108e1e5f781880d1d5401e9e3"
+            "url": "https://download.kde.org/stable/krita/5.2.3/krita-x64-5.2.3-setup.exe#/dl.7z",
+            "hash": "d67c561674d8a72341ed815ff4fd5f8ad58108950b2b3ae31807c25e25591b47"
         }
     },
+    "pre_install": "Remove-Item \"$dir\\`$*\" -Recurse -Force",
     "bin": [
         "bin\\krita.exe",
         "bin\\kritarunner.exe"
@@ -23,18 +20,14 @@
             "Krita"
         ]
     ],
-    "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\uninstall.exe.nsis\" -Recurse -Force",
     "checkver": {
-        "url": "https://krita.org/en/download/krita-desktop/",
+        "url": "https://krita.org/en/download/",
         "regex": "Download Krita\\s+([\\d.]+)"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
                 "url": "https://download.kde.org/stable/krita/$version/krita-x64-$version-setup.exe#/dl.7z"
-            },
-            "32bit": {
-                "url": "https://download.kde.org/stable/krita/$version/krita-x86-$version-setup.exe#/dl.7z"
             }
         },
         "hash": {

@@ -1,33 +1,53 @@
 {
-    "homepage": "https://playnite.link/",
-    "description": "An open source video game library manager and launcher with support for 3rd party libraries like Steam, GOG, Origin, Battle.net and Uplay. Includes game emulation support, providing one unified interface for your games.",
+    "version": "10.33",
+    "description": "Video game library manager and launcher with support for 3rd party libraries like Steam, GOG, Origin, Battle.net, ...",
+    "homepage": "https://playnite.link",
     "license": "MIT",
-    "version": "7.7",
-    "url": "https://playnite.link/update/stable/7.7/Playnite77.zip",
-    "hash": "a13e66d233f539c1c47188a10adeee952011d64af5cb1978c4096c51bb9c38ad",
-    "bin": "PlayniteUI.exe",
-    "shortcuts": [
+    "url": "https://github.com/JosefNemec/Playnite/releases/download/10.33/Playnite1033.zip",
+    "hash": "f92a1664ee8991d1f84b7daf8a1fefbce54b09fc84f4296c732e5d11ff84b99d",
+    "pre_install": [
+        "Copy-Item \"$persist_dir\\config.json\" \"$dir\" -ErrorAction 'SilentlyContinue'",
+        "if (Test-Path \"$persist_dir\\Themes\") {",
+        "    # Only copy themes that does not exist in $dir",
+        "    # This avoids overwriting newer version of themes with the old ones",
+        "    Get-ChildItem \"$persist_dir\\Themes\\Desktop\" | ForEach-Object {",
+        "        if (!(Test-Path \"$dir\\Themes\\Desktop\\$($_.Name)\")) { Copy-Item \"$persist_dir\\Themes\\Desktop\\$($_.Name)\" \"$dir\\Themes\\Desktop\\\" -Recurse }",
+        "    }",
+        "    Get-ChildItem \"$persist_dir\\Themes\\Fullscreen\" | ForEach-Object {",
+        "        if (!(Test-Path \"$dir\\Themes\\Fullscreen\\$($_.Name)\")) { Copy-Item \"$persist_dir\\Themes\\Fullscreen\\$($_.Name)\" \"$dir\\Themes\\Fullscreen\\\" -Recurse }",
+        "    }",
+        "}"
+    ],
+    "pre_uninstall": [
+        "Stop-Process -Name 'Playnite.DesktopApp' -ErrorAction SilentlyContinue",
+        "Copy-Item \"$dir\\config.json\" \"$persist_dir\" -ErrorAction SilentlyContinue -Force",
+        "Copy-Item \"$dir\\themes\" \"$persist_dir\\\" -Recurse -Force -ErrorAction SilentlyContinue"
+    ],
+    "bin": [
         [
-            "PlayniteUI.exe",
+            "Playnite.DesktopApp.exe",
             "Playnite"
         ]
     ],
-    "pre_install": [
-        "if (!(Test-Path \"$dir\\config.json\")) {",
-        "    New-Item -Force -Path \"$dir\" -Name 'config.json' -Value '{}' | Out-Null",
-        "}"
+    "shortcuts": [
+        [
+            "Playnite.DesktopApp.exe",
+            "Playnite"
+        ]
+    ],
+    "persist": [
+        "browsercache",
+        "cache",
+        "Extensions",
+        "ExtensionsData",
+        "ExtraMetadata",
+        "library",
+        "Themes"
     ],
     "checkver": {
         "github": "https://github.com/JosefNemec/Playnite"
     },
     "autoupdate": {
-        "url": "https://playnite.link/update/stable/$version/Playnite$cleanVersion.zip"
-    },
-    "persist": [
-        "browsercache",
-        "cache",
-        "ExtensionsData",
-        "library",
-        "config.json"
-    ]
+        "url": "https://github.com/JosefNemec/Playnite/releases/download/$version/Playnite$cleanVersion.zip"
+    }
 }

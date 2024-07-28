@@ -1,16 +1,20 @@
 {
-    "version": "6.1.16",
+    "version": "6.4.14",
     "description": "The scientific analysis of speech in phonetics",
     "homepage": "http://www.fon.hum.uva.nl/praat/",
     "license": "GPL-2.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/praat/praat/releases/download/v6.1.16/praat6116_win64.zip",
-            "hash": "8ad02b151eebd5e5f5af588509f17c8f17c8363258adb75a4beb91560c543233"
+            "url": "https://github.com/praat/praat/releases/download/v6.4.14/praat6414_win-intel64.zip",
+            "hash": "0290583eea6eeb9e9de58b78de3e2af1aa3f48b3126bca47daaf925a6b87c819"
         },
         "32bit": {
-            "url": "https://github.com/praat/praat/releases/download/v6.1.16/praat6116_win32.zip",
-            "hash": "7b604cece9eb7640679c0a3ad9fbcd86ceb947ffdcbe32c9c28e260761e67f2f"
+            "url": "https://github.com/praat/praat/releases/download/v6.4.14/praat6414_win-intel32.zip",
+            "hash": "fb332b1578874af0c95daa31ecd93eb56e67727f8d53c13247e1b81846dd68b1"
+        },
+        "arm64": {
+            "url": "https://github.com/praat/praat/releases/download/v6.4.14/praat6414_win-arm64.zip",
+            "hash": "141f42ba4806b3ff27e3648171f14dd2e119d695d8f0c16c26c33c1a225924d9"
         }
     },
     "bin": "Praat.exe",
@@ -21,16 +25,18 @@
         ]
     ],
     "checkver": {
-        "github": "https://github.com/praat/praat",
-        "regex": "download/v([\\w.]+)/(?<filename>praat\\d+)"
+        "github": "https://github.com/praat/praat"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/praat/praat/releases/download/v$version/$matchFilename_win64.zip"
+                "url": "https://github.com/praat/praat/releases/download/v$version/praat$cleanVersion_win-intel64.zip"
             },
             "32bit": {
-                "url": "https://github.com/praat/praat/releases/download/v$version/$matchFilename_win32.zip"
+                "url": "https://github.com/praat/praat/releases/download/v$version/praat$cleanVersion_win-intel32.zip"
+            },
+            "arm64": {
+                "url": "https://github.com/praat/praat/releases/download/v$version/praat$cleanVersion_win-arm64.zip"
             }
         }
     }

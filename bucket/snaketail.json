@@ -1,20 +1,26 @@
 {
-    "homepage": "http://snakenest.com/snaketail/",
+    "version": "1.9.8",
     "description": "A Windows tail utility for monitoring growing text log files.",
+    "homepage": "http://snakenest.com/snaketail/",
     "license": "GPL-3.0-only",
-    "version": "1.9.6",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/snakefoot/snaketail-net/releases/download/1.9.6/SnakeTail.v1.9.6.x64.msi",
-            "hash": "ad03bbf8549c1e0f59c679ac614f0070894c2c2c7b242813ae73d20fe64344a3"
+            "url": "https://github.com/snakefoot/snaketail-net/releases/download/1.9.8/SnakeTail.v1.9.8.x64.msi",
+            "hash": "e455f2e3476517daa56716a7cfdb7e4ef45f60e5681c0eaa82a73614e65e45ac"
         },
         "32bit": {
-            "url": "https://github.com/snakefoot/snaketail-net/releases/download/1.9.6/SnakeTail.v1.9.6.x86.msi",
-            "hash": "159851d9c098fa66426128096bd354d062ee4fa6a0a506de95b45b2afa7c47e4"
+            "url": "https://github.com/snakefoot/snaketail-net/releases/download/1.9.8/SnakeTail.v1.9.8.x86.msi",
+            "hash": "c79877c562dbc786bc783c8ecdb45dc14da85bfcd176734efb134466a3a4128a"
         }
     },
-    "bin": "SnakeTail.exe",
     "extract_dir": "SnakeTail",
+    "bin": "SnakeTail.exe",
+    "shortcuts": [
+        [
+            "SnakeTail.exe",
+            "SnakeTail"
+        ]
+    ],
     "checkver": {
         "github": "https://github.com/snakefoot/snaketail-net"
     },
@@ -27,11 +33,5 @@
                 "url": "https://github.com/snakefoot/snaketail-net/releases/download/$version/SnakeTail.v$version.x86.msi"
             }
         }
-    },
-    "shortcuts": [
-        [
-            "SnakeTail.exe",
-            "SnakeTail"
-        ]
-    ]
+    }
 }

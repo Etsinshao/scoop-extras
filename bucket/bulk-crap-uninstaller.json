@@ -1,23 +1,31 @@
 {
-    "version": "4.16",
+    "version": "5.8",
     "description": "Bulk program uninstaller with advanced automation",
     "homepage": "https://www.bcuninstaller.com/",
     "license": "Apache-2.0",
-    "url": "https://github.com/Klocman/Bulk-Crap-Uninstaller/releases/download/v4.16/BCUninstaller_4.16_portable.zip",
-    "hash": "d383996cc87a82bbb6c51f775d711c887db6e44687d848b6fb0792fde703d548",
+    "url": "https://github.com/Klocman/Bulk-Crap-Uninstaller/releases/download/v5.8/BCUninstaller_5.8_portable.zip",
+    "hash": "sha1:7aff08188acb564943ce4bd297c6161b718f7abb",
+    "architecture": {
+        "64bit": {
+            "extract_dir": "win-x64"
+        },
+        "32bit": {
+            "extract_dir": "win-x86"
+        }
+    },
     "pre_install": [
         "ensure \"$persist_dir\" | Out-Null",
-        "Copy-Item \"$persist_dir\\BCUninstaller.settings\" \"$dir\" -ErrorAction SilentlyContinue"
+        "Copy-Item \"$persist_dir\\BCUninstaller.settings\" \"$dir\" -ErrorAction 'SilentlyContinue'"
     ],
     "uninstaller": {
-        "script": "Copy-Item \"$dir\\BCUninstaller.settings\" \"$persist_dir\" -ErrorAction SilentlyContinue -Force"
+        "script": "Copy-Item \"$dir\\BCUninstaller.settings\" \"$persist_dir\" -ErrorAction 'SilentlyContinue' -Force"
     },
     "bin": [
-        "BCUninstaller.exe",
         "BCU-console.exe",
-        "StoreAppHelper.exe",
-        "SteamHelper.exe",
+        "BCUninstaller.exe",
         "OculusHelper.exe",
+        "SteamHelper.exe",
+        "StoreAppHelper.exe",
         "UninstallerAutomatizer.exe"
     ],
     "shortcuts": [
@@ -30,6 +38,10 @@
         "github": "https://github.com/Klocman/Bulk-Crap-Uninstaller"
     },
     "autoupdate": {
-        "url": "https://github.com/Klocman/Bulk-Crap-Uninstaller/releases/download/v$version/BCUninstaller_$version_portable.zip"
+        "url": "https://github.com/Klocman/Bulk-Crap-Uninstaller/releases/download/v$version/BCUninstaller_$version_portable.zip",
+        "hash": {
+            "url": "https://sourceforge.net/projects/bulk-crap-uninstaller/files/v$version/",
+            "regex": "$basename.*?\"sha1\":\"$sha1"
+        }
     }
 }

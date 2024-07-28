@@ -1,12 +1,12 @@
 {
+    "version": "2024-06",
+    "description": "Eclipse IDE for Java and DSL Developers",
     "homepage": "https://www.eclipse.org",
-    "description": "Eclipse IDE for Java and DSL Developers.",
     "license": "EPL-1.0",
-    "version": "2020-06",
     "architecture": {
         "64bit": {
-            "url": "http://download.eclipse.org/technology/epp/downloads/release/2020-06/R/eclipse-dsl-2020-06-R-win32-x86_64.zip",
-            "hash": "sha512:4ac5be0946c3c849cba5611badc8ade6aabfb334d89a73400b8b4635a772dcb1d86b18cfb42e632d40739ddbdcc65909e39a1ad86208d2a40dab288a1a192c1e"
+            "url": "http://download.eclipse.org/technology/epp/downloads/release/2024-06/R/eclipse-dsl-2024-06-R-win32-x86_64.zip",
+            "hash": "sha512:4e608330114bc1893a1df25af6a4c22a435bf6a1cd9137c2128397a560f89c83d177ed9e7e33e05ee8142ba39b1d539f12a5b3ef731505ff27600da7eceb9c60"
         }
     },
     "extract_dir": "eclipse",

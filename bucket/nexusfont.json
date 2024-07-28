@@ -1,10 +1,10 @@
 {
-    "version": "2.6.2.1870",
+    "version": "2.7.1",
     "description": "Font manager",
-    "homepage": "http://www.xiles.net/",
-    "license": "Unknown",
-    "url": "http://www.xiles.net/pds/nexusfont_2.6.2.zip",
-    "hash": "a362c3842174d160e2e79792eec5bb4c46ce56fcd9714f26b45587c2e91c7d30",
+    "homepage": "https://www.xiles.app",
+    "license": "Freeware",
+    "url": "https://s3.ap-northeast-2.amazonaws.com/net.xiles.public/download/nexusfont_2.7.1.zip",
+    "hash": "376be2e3b94c4b46865e59e784fba2153fff3dbad6481925213dfc8e137a1b2c",
     "extract_dir": "nexusfont",
     "bin": [
         "nexusfont.exe",
@@ -17,8 +17,8 @@
         ]
     ],
     "persist": "userdata",
-    "checkver": "nexusfont_[\\d.]+\\.zip&product=NexusFont2&ver=([\\d.]+)",
+    "checkver": "nexusfont_([\\d.]+)\\.zip",
     "autoupdate": {
-        "url": "http://www.xiles.net/pds/nexusfont_$matchHead.zip"
+        "url": "https://s3.ap-northeast-2.amazonaws.com/net.xiles.public/download/nexusfont_$matchHead.zip"
     }
 }

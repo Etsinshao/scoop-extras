@@ -1,12 +1,12 @@
 {
-    "version": "1.0.0-preview.3",
+    "version": "16.0.3",
     "description": "GraphQL IDE",
-    "homepage": "https://hotchocolate.io/docs/banana-cakepop",
+    "homepage": "https://chillicream.com/docs/bananacakepop",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://blob.chillicream.io/banana/BananaCakePop-1.0.0-preview.3.exe#/dl.7z",
-            "hash": "537f0ca66954456cb924450e8a0919b238b3fe9f8c0cdd6540b199f8e0af2935",
+            "url": "https://download.chillicream.com/bananacakepop/BananaCakePop-16.0.3-win-x64.exe#/dl.7z",
+            "hash": "sha512:40b60779eb60474f7d5194878e6206c4b3fbea0d4f71172405fb2e8f73cc0532ea32c748b64a241943f93ee430bebee1ff253e231efffebc3e7c2f158da8593b",
             "pre_install": [
                 "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" -DestinationPath \"$dir\"",
                 "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Uninst*\" -Recurse"
@@ -19,12 +19,19 @@
             "Banana Cake Pop"
         ]
     ],
-    "checkver": "BananaCakePop-([\\w.-]+)\\.exe",
+    "checkver": {
+        "url": "https://download.chillicream.com/bananacakepop/latest.yml",
+        "regex": "BananaCakePop-([\\w.-]+)-win-x64\\.exe"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://blob.chillicream.io/banana/BananaCakePop-$version.exe#/dl.7z"
+                "url": "https://download.chillicream.com/bananacakepop/BananaCakePop-$version-win-x64.exe#/dl.7z"
             }
+        },
+        "hash": {
+            "url": "$baseurl/latest.yml",
+            "regex": "sha512:\\s+$base64"
         }
     }
 }

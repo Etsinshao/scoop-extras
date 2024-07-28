@@ -1,12 +1,12 @@
 {
-    "version": "2.25",
+    "version": "2.32",
     "description": "A simple mini sftp server with GUI controls",
     "homepage": "http://www.coreftp.com/server/",
     "license": "Freeware",
     "architecture": {
         "64bit": {
             "url": "http://www.coreftp.com/server/download/mini-sftp-server.x64.exe",
-            "hash": "656ed613e9d963af8bb243141370810b39f3baa6f9828f87406c5d68af483607",
+            "hash": "be26c472b036efe05a6b1ba2d8e142dcf8c7450ca4752385d036a56154cbca57",
             "shortcuts": [
                 [
                     "mini-sftp-server.x64.exe",
@@ -16,7 +16,7 @@
         },
         "32bit": {
             "url": "http://www.coreftp.com/server/download/mini-sftp-server.exe",
-            "hash": "19ac56920328ffcb0099be48dc1c510a99adeaed90f667371e7c55e1dd3bf9f0",
+            "hash": "c9fee27b6455228fc5cca58bdb59f3e3efd7152dfb56c9dfcc9320e1d7fc0956",
             "shortcuts": [
                 [
                     "mini-sftp-server.exe",

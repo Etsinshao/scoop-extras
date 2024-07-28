@@ -1,28 +1,18 @@
 {
-    "version": "1.20.8.1",
-    "homepage": "https://vcxsrv.sourceforge.io/",
+    "version": "21.1.13.0",
+    "description": "Windows X-server based on the xorg git sources (like xming or cygwin's xwin)",
+    "homepage": "https://github.com/marchaesen/vcxsrv",
     "license": "GPL-3.0-only",
-    "description": "Open Source Windows X-server based on the xorg git sources (like xming or cygwin's xwin)",
     "architecture": {
         "64bit": {
-            "url": "https://downloads.sourceforge.net/project/vcxsrv/vcxsrv/1.20.8.1/vcxsrv-64.1.20.8.1.installer.exe#/dl.7z",
-            "hash": "sha1:33ba4eb017c241c3ec6ef60845fac5871da219d1"
+            "url": "https://github.com/marchaesen/vcxsrv/releases/download/21.1.13/vcxsrv-64.21.1.13.0.installer.exe#/dl.7z",
+            "hash": "970243b0e2c652949225d250bf37e87e2f321435d4d3757e94ff762e4578a281"
         },
         "32bit": {
-            "url": "https://downloads.sourceforge.net/project/vcxsrv/vcxsrv/1.20.8.1/vcxsrv.1.20.8.1.installer.exe#/dl.7z",
-            "hash": "sha1:dc788ffd179622082770410e5ce42b18a8b9f22d"
+            "url": "https://github.com/marchaesen/vcxsrv/releases/download/21.1.13/vcxsrv.21.1.13.0.installer.exe#/dl.7z",
+            "hash": "4893864aa258700ad9b35730634e1eeacbb17b6a03bb89fa0c30934ce1d0bddd"
         }
     },
-    "shortcuts": [
-        [
-            "vcxsrv.exe",
-            "VcXsrv"
-        ],
-        [
-            "xlaunch.exe",
-            "XLauncher"
-        ]
-    ],
     "bin": [
         "vcxsrv.exe",
         "xauth.exe",
@@ -34,17 +24,28 @@
         "xrdb.exe",
         "xwininfo.exe"
     ],
+    "shortcuts": [
+        [
+            "vcxsrv.exe",
+            "VcXsrv"
+        ],
+        [
+            "xlaunch.exe",
+            "XLauncher"
+        ]
+    ],
     "checkver": {
-        "url": "https://sourceforge.net/projects/vcxsrv/rss?path=/vcxsrv/",
-        "re": "/vcxsrv/([\\d.]+[\\d]+)/vcxsrv"
+        "url": "https://api.github.com/repositories/754309614/releases/latest",
+        "jsonpath": "$..browser_download_url",
+        "regex": "download/(?<tag>[\\d.]+)/vcxsrv-64.([\\d.]+).installer.exe"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://downloads.sourceforge.net/project/vcxsrv/vcxsrv/$version/vcxsrv-64.$version.installer.exe#/dl.7z"
+                "url": "https://github.com/marchaesen/vcxsrv/releases/download/$matchTag/vcxsrv-64.$version.installer.exe#/dl.7z"
             },
             "32bit": {
-                "url": "https://downloads.sourceforge.net/project/vcxsrv/vcxsrv/$version/vcxsrv.$version.installer.exe#/dl.7z"
+                "url": "https://github.com/marchaesen/vcxsrv/releases/download/$matchTag/vcxsrv.$version.installer.exe#/dl.7z"
             }
         }
     }

@@ -1,19 +1,19 @@
 {
-    "homepage": "https://www.jetbrains.com/decompiler/",
+    "version": "2024.1.4",
     "description": "Free .NET Decompiler and Assembly Browser",
+    "homepage": "https://www.jetbrains.com/decompiler/",
     "license": {
         "identifier": "Proprietary",
         "url": "https://www.jetbrains.com/decompiler/download/license.html"
     },
-    "version": "2020.1.4",
     "architecture": {
         "64bit": {
-            "url": "https://download.jetbrains.com/resharper/ReSharperUltimate.2020.1.4/dotPeek64.2020.1.4.exe#/dotpeek.exe",
-            "hash": "16b5ff33ea5df9b8e9c860f186c89eda7a62bf4973e519ef262c3e69048bb37b"
+            "url": "https://download.jetbrains.com/resharper/dotUltimate.2024.1.4/dotPeek64.2024.1.4.exe#/dotpeek.exe",
+            "hash": "ad36d20a4b8221d8d31667c04b521df7121093c4140779a5935433163addad86"
         },
         "32bit": {
-            "url": "https://download.jetbrains.com/resharper/ReSharperUltimate.2020.1.4/dotPeek32.2020.1.4.exe#/dotpeek.exe",
-            "hash": "e8dab34112c8a8c7fe938dad0a1678a0f3e1f30ebac373462d75fc645b08110c"
+            "url": "https://download.jetbrains.com/resharper/dotUltimate.2024.1.4/dotPeek32.2024.1.4.exe#/dotpeek.exe",
+            "hash": "ae9cd6c94d624d4457db96726ba83094ef1b0448d7aac25f4dc9910e1d2f89ed"
         }
     },
     "shortcuts": [
@@ -23,21 +23,20 @@
         ]
     ],
     "checkver": {
-        "url": "https://data.services.jetbrains.com/products/releases?code=DPK&latest=true&platform=zip&type=release ",
+        "url": "https://data.services.jetbrains.com/products/releases?code=DPK&latest=true&platform=zip&type=release",
         "jsonpath": "$..version"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://download.jetbrains.com/resharper/ReSharperUltimate.$version/dotPeek64.$version.exe#/dotpeek.exe"
+                "url": "https://download.jetbrains.com/resharper/dotUltimate.$version/dotPeek64.$version.exe#/dotpeek.exe"
             },
             "32bit": {
-                "url": "https://download.jetbrains.com/resharper/ReSharperUltimate.$version/dotPeek32.$version.exe#/dotpeek.exe"
+                "url": "https://download.jetbrains.com/resharper/dotUltimate.$version/dotPeek32.$version.exe#/dotpeek.exe"
             }
         },
         "hash": {
             "url": "$url.sha256"
-        },
-        "extract_dir": "dotpeek-$version"
+        }
     }
 }

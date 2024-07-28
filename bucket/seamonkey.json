@@ -1,26 +1,46 @@
 {
-    "version": "2.53.3",
+    "version": "2.53.18",
     "description": "All-in-one application suite capable of web browsing, advanced e-mail, newsgroup, feed client, IRC chat and HTML editing.",
     "homepage": "https://www.seamonkey-project.org",
     "license": "MPL-2.0",
+    "notes": [
+        "To set profile 'Scoop' as *DEFAULT*, or profiles/settings was lost after update:",
+        "  - Run 'SeaMonkey Profile Manager', choose 'Scoop' then click 'Start SeaMonkey'.",
+        "  - Visit 'about:profiles' page in SeaMonkey to check *DEFAULT* profile.",
+        "For details: https://support.mozilla.org/en-US/kb/profile-manager-create-remove-switch-firefox-profiles"
+    ],
     "architecture": {
         "64bit": {
-            "url": "https://archive.mozilla.org/pub/seamonkey/releases/2.53.3/win64/en-US/seamonkey-2.53.3.en-US.win64.installer.exe#/dl.7z",
-            "hash": "sha512:caf265de0fbbafe75d023eeaa08eaff6c4028c2b3cb3510a650b8ecd63f06e11e82e82706dd876782e2b791f913631ddb47530bc740351429e1778979b4cbe31"
+            "url": "https://archive.mozilla.org/pub/seamonkey/releases/2.53.18/win64/en-US/seamonkey-2.53.18.en-US.win64.installer.exe#/dl.7z",
+            "hash": "sha512:50146aea9c91666479bffcb69101e8c79a463ed90e27ebf5d7654e6fb117ffc2472f1cdb3a892ce3cd12686b9ef6dcc6643f77ac3f4432c6c063498f20539de1"
         },
         "32bit": {
-            "url": "https://archive.mozilla.org/pub/seamonkey/releases/2.53.3/win32/en-US/seamonkey-2.53.3.en-US.win32.installer.exe#/dl.7z",
-            "hash": "sha512:3c9623c4fed718fd5c5ff65ed356317f34a2ea955eb08a377319076c257962e63e5017843488c916faad60208d7963ac8d05a5182c8a10eacdc37d44641295f7"
+            "url": "https://archive.mozilla.org/pub/seamonkey/releases/2.53.18/win32/en-US/seamonkey-2.53.18.en-US.win32.installer.exe#/dl.7z",
+            "hash": "sha512:92adf4bdee87d47c8b740641efaba905e5077b95a0e036275985883d6ddf43b895cfa52dd5609779fe183cd192c59ff57c69db849a0fe0b5edcb927653b40c82"
         }
     },
     "extract_dir": "core",
+    "post_install": [
+        "seamonkey -CreateProfile \"Scoop $persist_dir\\profile\"",
+        "$Addition = \"$persist_dir\\addition\"",
+        "if (Test-Path $Addition) {",
+        "  info 'Copying additional items...'",
+        "  Copy-Item -Path $Addition\\* -Destination $dir -Force -Recurse -ErrorAction SilentlyContinue",
+        "}"
+    ],
     "bin": "seamonkey.exe",
     "shortcuts": [
         [
             "seamonkey.exe",
             "SeaMonkey"
+        ],
+        [
+            "seamonkey.exe",
+            "SeaMonkey Profile Manager",
+            "-P"
         ]
     ],
+    "persist": "profile",
     "checkver": ">SeaMonkey\\s+([\\d.]+)</",
     "autoupdate": {
         "architecture": {

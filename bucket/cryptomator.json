@@ -1,17 +1,20 @@
 {
-    "version": "1.5.6",
+    "version": "1.13.0",
     "description": "Multi-platform transparent client-side encryption of files in the cloud",
     "homepage": "https://cryptomator.org",
     "license": "GPL-3.0-only",
+    "suggest": {
+        "WinFSP": "nonportable/winfsp-np"
+    },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/cryptomator/cryptomator/releases/download/1.5.6/Cryptomator-1.5.6-x64.exe",
-            "hash": "1eaaa64f81c11fa3c9ffa0a0de68f53a1d21231733bbe243ef500daea3e88d69"
+            "url": "https://github.com/cryptomator/cryptomator/releases/download/1.13.0/Cryptomator-1.13.0-x64.msi",
+            "hash": "e077c0b0e08cc9bec27ca6990281efc9f361f11b88f80ccf73201dded6af6c98"
         }
     },
-    "innosetup": true,
+    "extract_dir": "Cryptomator",
     "post_install": [
-        "# change appdata settings folder",
+        "    # Change appdata settings folder",
         "(Get-Content \"$dir\\app\\Cryptomator.cfg\" -Encoding ASCII).replace('~/AppData/Roaming/Cryptomator', './data') | Set-Content \"$dir\\app\\Cryptomator.cfg\" -Encoding ASCII"
     ],
     "bin": "Cryptomator.exe",
@@ -24,16 +27,17 @@
     "persist": "data",
     "checkver": {
         "url": "https://github.com/cryptomator/cryptomator/releases",
-        "regex": "Cryptomator-([\\d.]+)-x64\\.exe"
+        "regex": "Cryptomator-([\\d.]+)-x64\\.msi"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/cryptomator/cryptomator/releases/download/$version/Cryptomator-$version-x64.exe"
+                "url": "https://github.com/cryptomator/cryptomator/releases/download/$version/Cryptomator-$version-x64.msi"
             }
         },
         "hash": {
-            "url": "https://dl.bintray.com/cryptomator/cryptomator/$version/Cryptomator-$version-x64.exe.sha256"
+            "url": "https://github.com/cryptomator/cryptomator/releases/tag/$version",
+            "regex": "$sha256\\s*\\./$basename"
         }
     }
 }

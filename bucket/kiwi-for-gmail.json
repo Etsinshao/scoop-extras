@@ -1,26 +1,24 @@
 {
-    "version": "2.0.505",
+    "version": "4.2.4",
     "description": "A desktop client for Gmail and Google Apps",
     "homepage": "https://kiwiforgmail.com/",
     "license": "Proprietary",
+    "url": "https://downloads.kiwiforgmail.com/kiwi/release/consumer/Kiwi+for+Gmail+Setup+4.2.4.exe#/dl.7z",
+    "hash": "sha512:813e620ae862f4a6cf6953d8cbebb3df01f87ff68e2284f758317cbb574a557b41c4a51e42955d6fd7da63cca30f82f94e5c0222439519a759cb99dd12dede89",
     "architecture": {
         "64bit": {
-            "url": "https://s3-us-west-1.amazonaws.com/kiwiforgmail/windows/release/64bit/KiwiForGmail-2.0.505-full.nupkg",
-            "hash": "sha1:9ab7a22b8e204fc13f3333b3a420b3cd22119c65"
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\" | Out-Null",
+                "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse"
+            ]
         },
         "32bit": {
-            "url": "https://s3-us-west-1.amazonaws.com/kiwiforgmail/windows/release/32bit/KiwiForGmail-2.0.505-full.nupkg",
-            "hash": "sha1:9496e6a4dce166ff17aec0473848d77666e57bb3"
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-32.7z\" \"$dir\" | Out-Null",
+                "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse"
+            ]
         }
     },
-    "extract_dir": "lib\\net45",
-    "bin": [
-        "Kiwi for Gmail.exe",
-        [
-            "Kiwi for Gmail.exe",
-            "kiwi"
-        ]
-    ],
     "shortcuts": [
         [
             "Kiwi for Gmail.exe",
@@ -28,20 +26,14 @@
         ]
     ],
     "checkver": {
-        "url": "https://s3-us-west-1.amazonaws.com/kiwiforgmail/windows/release/64bit/RELEASES",
-        "regex": "KiwiForGmail-([\\d.]+)-full.nupkg"
+        "url": "https://downloads.kiwiforgmail.com/kiwi/release/consumer/latest.yml",
+        "regex": "Kiwi for Gmail Setup ([\\d.]+).exe"
     },
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://s3-us-west-1.amazonaws.com/kiwiforgmail/windows/release/64bit/KiwiForGmail-$version-full.nupkg"
-            },
-            "32bit": {
-                "url": "https://s3-us-west-1.amazonaws.com/kiwiforgmail/windows/release/32bit/KiwiForGmail-$version-full.nupkg"
-            }
-        },
+        "url": "https://downloads.kiwiforgmail.com/kiwi/release/consumer/Kiwi+for+Gmail+Setup+$version.exe#/dl.7z",
         "hash": {
-            "url": "$baseurl/RELEASES"
+            "url": "https://downloads.kiwiforgmail.com/kiwi/release/consumer/latest.yml",
+            "regex": "$base64"
         }
     }
 }

@@ -1,10 +1,19 @@
 {
-    "homepage": "https://www.geany.org/",
+    "version": "2.0",
     "description": "A powerful, stable and lightweight programmer's text editor that provides tons of useful features without bogging down your workflow.",
-    "version": "1.36",
+    "homepage": "https://www.geany.org/",
     "license": "GPL-2.0-or-later",
-    "url": "https://download.geany.org/geany-1.36_setup.exe#/dl.7z",
-    "hash": "1549b62f9e9fdde825ae45245bafc3a47ce85f4555f28b06e3a9c600340751df",
+    "url": "https://download.geany.org/geany-2.0_setup.exe#/dl.7z",
+    "hash": "fdc3e8d183533ae0c87ff3c2b035166e6a4d31379a2014320abd552d5558d8e9",
+    "pre_install": "Remove-Item \"$dir\\`$*\", \"$dir\\uninst*\" -Recurse",
+    "installer": {
+        "script": [
+            "if (Test-Path -Path $(appdir geany-plugins $global)) {",
+            "  Get-ChildItem \"$(appdir geany-plugins $global)\\current\" -Exclude install.json, manifest.json |",
+            "  Copy-Item -Destination $dir -Recurse -Force",
+            "}"
+        ]
+    },
     "bin": "bin\\geany.exe",
     "shortcuts": [
         [
@@ -12,7 +21,6 @@
             "Geany"
         ]
     ],
-    "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse",
     "checkver": {
         "url": "https://download.geany.org/",
         "regex": "LATEST-IS-([\\d.]+)"

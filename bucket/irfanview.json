@@ -1,53 +1,58 @@
 {
-    "version": "4.54",
-    "description": "A fast, compact and innovative graphic viewer",
+    "version": "4.67",
+    "description": "A fast, compact and innovative graphic viewer (with PlugIns)",
     "homepage": "https://www.irfanview.com",
     "license": {
         "identifier": "Freeware",
         "url": "https://www.irfanview.com/eula.htm"
     },
+    "notes": [
+        "This is the full version of IrfanView with PlugIns.",
+        "If you need NOT the PlugIns, see: https://www.irfanview.com/plugins.htm#UpdatedPlugins",
+        "uninstall this package and 'scoop install extras/irfanview-lean'"
+    ],
     "architecture": {
         "64bit": {
             "url": [
-                "https://www.irfanview.info/files/iview454_x64.zip",
-                "https://www.irfanview.info/files/iview454_plugins_x64.zip"
+                "https://www.irfanview.info/files/iview467_x64.zip",
+                "https://www.irfanview.info/files/iview467_plugins_x64.zip"
             ],
             "hash": [
-                "735bc1dd67de2882c729fa6f144e6dcfd237e90981a1ae8792ce48c1500d740b",
-                "29150d42c2947561e0c8f7711c4d2eb7703d8aed016091911a64dde3db94cc03"
-            ],
-            "shortcuts": [
-                [
-                    "i_view64.exe",
-                    "IrfanView"
-                ]
+                "bdfbd50e32ee0a772934d3e9a98fedd6f620e023358b5cc5a733fb06af24e18c",
+                "b4986c5039baf32a7444603d1ce6a5a57af8118cf9067198ab74d5094b7bd489"
             ],
             "bin": [
                 [
                     "i_view64.exe",
                     "irfanview"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "i_view64.exe",
+                    "IrfanView"
                 ]
             ]
         },
         "32bit": {
             "url": [
-                "https://www.irfanview.info/files/iview454.zip",
-                "https://www.irfanview.info/files/iview454a_plugins.zip"
+                "https://www.irfanview.info/files/iview467.zip",
+                "https://www.irfanview.info/files/iview467_plugins.zip"
             ],
             "hash": [
-                "d17228fb23919eec7f139db6827a998737ec981cc0f718c8681e692c53742aef",
-                "47a1372eebfc3646ba65ccf5718002347c9114d5fff8056e0c4cebbf9a5e98f9"
-            ],
-            "shortcuts": [
-                [
-                    "i_view32.exe",
-                    "IrfanView"
-                ]
+                "75aeec57c780ae7ad6e15f750e34f62abedb1569efce1bfc2d6023d4a045f5a3",
+                "9d62c7b44c8d83c617758d90d373b3dd25dfa9af90a45a2c9629c4998b35d29a"
             ],
             "bin": [
                 [
                     "i_view32.exe",
                     "irfanview"
+                ]
+            ],
+            "shortcuts": [
+                [
+                    "i_view32.exe",
+                    "IrfanView"
                 ]
             ]
         }
@@ -63,7 +68,44 @@
     "persist": [
         "i_view64.ini",
         "i_view32.ini",
-        "Languages"
+        "Languages",
+        "Toolbars"
     ],
-    "checkver": ">\\s*version\\s+([\\d.-]+)\\s*<"
+    "checkver": ">\\s*version\\s+([\\d.-]+)\\s*<",
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": [
+                    "https://www.irfanview.info/files/iview$cleanVersion_x64.zip",
+                    "https://www.irfanview.info/files/iview$cleanVersion_plugins_x64.zip"
+                ],
+                "hash": [
+                    {
+                        "url": "https://www.irfanview.com/64bit.htm",
+                        "regex": "ZIP file.+\\s+.+checksum: $sha256"
+                    },
+                    {
+                        "url": "https://www.irfanview.com/64bit.htm",
+                        "regex": "PlugIns.+ZIP file.+\\s+.+checksum: $sha256"
+                    }
+                ]
+            },
+            "32bit": {
+                "url": [
+                    "https://www.irfanview.info/files/iview$cleanVersion.zip",
+                    "https://www.irfanview.info/files/iview$cleanVersion_plugins.zip"
+                ],
+                "hash": [
+                    {
+                        "url": "https://www.irfanview.com/main_download_engl.htm",
+                        "regex": "zip.+-\\s$sha256"
+                    },
+                    {
+                        "url": "https://www.irfanview.com/plugins.htm",
+                        "regex": "zip.+\\s+.+checksum: $sha256"
+                    }
+                ]
+            }
+        }
+    }
 }

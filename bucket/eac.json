@@ -1,10 +1,10 @@
 {
-    "version": "1.5",
+    "version": "1.8",
     "description": "Exact Audio Copy using standard drives",
     "homepage": "http://www.exactaudiocopy.de",
     "license": "Freeware",
-    "url": "http://www.exactaudiocopy.de/eac-1.5.exe#/dl.7z",
-    "hash": "sha1:f4b9da1abc0ecfcd7466ec903bf87bba51872b87",
+    "url": "http://www.exactaudiocopy.de/eac-1.8.exe#/dl.7z",
+    "hash": "sha1:cadb6987808dfa4f54ccd41205d7ef5236f29362",
     "pre_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\Empty*\", \"$dir\\uninst*\" -Recurse",
     "shortcuts": [
         [

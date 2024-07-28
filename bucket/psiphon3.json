@@ -1,18 +1,24 @@
 {
-    "homepage": "https://s3.amazonaws.com/psiphon/web/60l3-nnss-6gsn/index.html",
+    "version": "183",
     "description": "A centrally managed, geographically diverse network of thousands of proxy servers, using a performance-oriented, single hop architecture, for Internet censorship circumvention",
-    "version": "nightly",
+    "homepage": "https://psiphon.ca",
     "license": "GPL-3.0-only",
-    "url": "https://s3.amazonaws.com/psiphon/web/60l3-nnss-6gsn/psiphon3.exe",
-    "bin": "psiphon3.exe",
+    "notes": [
+        "License Agreement: https://psiphon.ca/en/license.html",
+        "Privacy Policy:    https://psiphon.ca/en/privacy.html"
+    ],
+    "url": "https://psiphon.ca/psiphon3.exe",
+    "hash": "2f4f941797584afe669bd83c90e1c7858efa46a4067b0d31682b43f2309deb5a",
     "shortcuts": [
         [
             "psiphon3.exe",
             "Psiphon 3"
         ]
     ],
-    "notes": [
-        "EULA: https://s3.amazonaws.com/psiphon/web/60l3-nnss-6gsn/en/license.html",
-        "Privacy Policy: https://s3.amazonaws.com/psiphon/web/60l3-nnss-6gsn/en/privacy.html"
-    ]
+    "checkver": {
+        "github": "https://github.com/Psiphon-Inc/psiphon-windows"
+    },
+    "autoupdate": {
+        "url": "https://psiphon.ca/psiphon3.exe"
+    }
 }

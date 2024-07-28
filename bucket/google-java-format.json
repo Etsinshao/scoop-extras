@@ -1,23 +1,21 @@
 {
-    "homepage": "https://github.com/google/google-java-format",
+    "version": "1.22.0",
     "description": "Reformats Java source code to comply with Google Java Style.",
-    "version": "1.8",
+    "homepage": "https://github.com/google/google-java-format",
     "license": "Apache-2.0",
-    "hash": "29c864e58db8784028f4871fa4ef1e9cfcc0e5b9939ead09c7f1fc59e64737be",
-    "url": "https://github.com/google/google-java-format/releases/download/google-java-format-1.8/google-java-format-1.8-all-deps.jar#/google-java-format.jar",
     "suggest": {
         "JDK": [
             "java/oraclejdk",
             "java/openjdk"
         ]
     },
-    "bin": "google-java-format.bat",
+    "url": "https://github.com/google/google-java-format/releases/download/v1.22.0/google-java-format-1.22.0-all-deps.jar#/google-java-format.jar",
+    "hash": "16b2a1ee938686c8b1d88abf19eb83dfd0d623cee9de6fc6d09980214f816d3f",
+    "bin": "google-java-format.jar",
     "checkver": {
-        "github": "https://github.com/google/google-java-format",
-        "re": "/releases/tag/google-java-format-([\\d.]+)"
+        "github": "https://github.com/google/google-java-format"
     },
     "autoupdate": {
-        "url": "https://github.com/google/google-java-format/releases/download/google-java-format-$version/google-java-format-$version-all-deps.jar#/google-java-format.jar"
-    },
-    "pre_install": "\"@java -jar \"\"$dir\\google-java-format.jar\"\" %*\" | out-file -en oem \"$dir\\google-java-format.bat\""
+        "url": "https://github.com/google/google-java-format/releases/download/v$version/google-java-format-$version-all-deps.jar#/google-java-format.jar"
+    }
 }

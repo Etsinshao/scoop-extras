@@ -1,18 +1,16 @@
 {
-    "version": "4.4.3",
-    "description": "Visualizer for deep learning and machine learning models.",
-    "homepage": "https://github.com/lutzroeder/Netron",
+    "version": "7.8.1",
+    "description": "Visualizer for deep learning and machine learning models",
+    "homepage": "https://netron.app/",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/lutzroeder/netron/releases/download/v4.4.3/Netron-Setup-4.4.3.exe#/dl.7z",
-            "hash": "sha512:e7c7880f737e612896a15bff22c3211efd1129c0862ad3918136a5d02655e3733670a5955930f2149e399127bcd2bc6da2ba8a2d431faa2b80ca2072115b5280",
-            "installer": {
-                "script": [
-                    "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
-                    "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse"
-                ]
-            }
+            "url": "https://github.com/lutzroeder/netron/releases/download/v7.8.1/Netron-Setup-7.8.1.exe#/dl.7z",
+            "hash": "sha512:5844d7af7e9efd36fe52ab0f71b0aefbb4a7564507d03feaaaf82a64f7d75957447e531ae6d675dad28981671bbaea793edca1e48fd26415f439379219f8b780",
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$*\" -Force -Recurse"
+            ]
         }
     },
     "bin": "Netron.exe",
@@ -22,7 +20,9 @@
             "Netron"
         ]
     ],
-    "checkver": "github",
+    "checkver": {
+        "github": "https://github.com/lutzroeder/netron"
+    },
     "autoupdate": {
         "architecture": {
             "64bit": {

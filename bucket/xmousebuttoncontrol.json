@@ -1,10 +1,10 @@
 {
-    "version": "2.18.8",
+    "version": "2.20.5",
     "description": "Windows tool that allows re-configuration and expand the capabilities of mouse.",
     "homepage": "https://www.highrez.co.uk/downloads/xmousebuttoncontrol.htm",
-    "license": "Unknown",
-    "url": "https://vps2.highrez.co.uk/downloads/XMouseButtonControl%202.18.8%20Portable.zip",
-    "hash": "f8376bb51234a9c4bb4a5f17c944a6274d880582c5d1266f1ffe86848aca6156",
+    "license": "Freeware",
+    "url": "https://vps2.highrez.co.uk/downloads/XMouseButtonControl%202.20.5%20Portable.zip",
+    "hash": "383079c809a50d1c375c5751e085efa871905adc775817c27d75eb471d70f4e3",
     "architecture": {
         "64bit": {
             "extract_dir": "64bit (x64)"
@@ -14,15 +14,9 @@
         }
     },
     "pre_install": [
-        "$conf = 'XMBCSettings.xml'",
-        "if (!(Test-Path \"$persist_dir\\$conf\")) {",
-        "    Write-Host 'File' $conf 'does not exists. Creating.' -f Yellow",
-        "    $cont = \"<?xml version=`\"1.0`\"?>`n<root>`n\"",
-        "    $cont += \"<CheckVersion Days=`\"5`\" Enable=`\"false`\" Beta=`\"false`\" />`n</root>\"",
-        "    Set-Content \"$dir\\$conf\" $cont -Encoding ascii",
-        "}"
+        "ensure $persist_dir | Out-Null",
+        "Copy-Item \"$persist_dir\\XMBCSettings.xml\" \"$dir\\XMBCSettings.xml\" -ErrorAction 'SilentlyContinue'"
     ],
-    "persist": "XMBCSettings.xml",
     "bin": "XMouseButtonControl.exe",
     "shortcuts": [
         [
@@ -30,9 +24,10 @@
             "X-Mouse Button Control"
         ]
     ],
+    "pre_uninstall": "Copy-Item \"$dir\\XMBCSettings.xml\" \"$persist_dir\\XMBCSettings.xml\" -ErrorAction 'SilentlyContinue'",
     "checkver": {
         "url": "https://www.highrez.co.uk/downloads/xmbc_changelog.htm",
-        "re": "Version ([\\d\\.]+)\\s+\\(\\d"
+        "regex": "Version ([\\d.]+)</"
     },
     "autoupdate": {
         "url": "https://vps2.highrez.co.uk/downloads/XMouseButtonControl%20$version%20Portable.zip"

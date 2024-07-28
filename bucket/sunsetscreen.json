@@ -1,5 +1,5 @@
 {
-    "version": "1.34",
+    "version": "1.50",
     "description": "Take the glare off your screen in the evening",
     "homepage": "https://www.skytopia.com/software/sunsetscreen/",
     "license": {
@@ -7,7 +7,7 @@
         "url": "https://www.skytopia.com/software/sunsetscreen/sunsetscreen-license.html"
     },
     "url": "https://www.skytopia.com/software/sunsetscreen/SunsetScreen.exe",
-    "hash": "f978c8e444110ec0172a6e47467e637b6eef0f5c2e9e26a5b4a7e23634683f25",
+    "hash": "662c9d1fabed3e85ef31d0225a55a46249e741e1aa24780fb83cfa901bd63bfb",
     "bin": "SunsetScreen.exe",
     "shortcuts": [
         [

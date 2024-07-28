@@ -1,16 +1,19 @@
 {
+    "version": "0.6.7.3",
+    "description": "Reversing tool for PE files",
     "homepage": "https://hshrzd.wordpress.com/pe-bear/",
-    "description": "A freeware reversing tool for PE files.",
-    "version": "0.4.0.3",
-    "license": "Unknown",
+    "license": "GPL-2.0-only",
+    "suggest": {
+        "vcredist": "extras/vcredist2022"
+    },
     "architecture": {
         "64bit": {
-            "url": "https://github.com/hasherezade/pe-bear-releases/releases/download/0.4.0.3/PE-bear_0.4.0.3_x64_win.zip",
-            "hash": "0cc5ce8c8edb112ff00ccdd6422bae6b810801e3c4d24cecee4fe7ef4ff7ff60"
+            "url": "https://github.com/hasherezade/pe-bear/releases/download/v0.6.7.3/PE-bear_0.6.7.3_x64_win_vs19.zip",
+            "hash": "22146f303e29de8e00c327ed8d32c46a86eb351875447859286962d11ddb25cc"
         },
         "32bit": {
-            "url": "https://github.com/hasherezade/pe-bear-releases/releases/download/0.4.0.3/PE-bear_0.4.0.3_x86_win.zip",
-            "hash": "6b49ce58b5772b57642ee8363d0ca611f834679e06e3f665d6b4a65ee94ff87c"
+            "url": "https://github.com/hasherezade/pe-bear/releases/download/v0.6.7.3/PE-bear_0.6.7.3_x86_win_vs19.zip",
+            "hash": "da91da0676401dbfe2beda3723ce1578fdc1f5bb13b6373e64ff985479c39ca5"
         }
     },
     "bin": "PE-bear.exe",
@@ -20,19 +23,16 @@
             "PE-bear"
         ]
     ],
-    "suggest": {
-        "vcredist": "extras/vcredist2010"
-    },
     "checkver": {
-        "github": "https://github.com/hasherezade/pe-bear-releases/"
+        "github": "https://github.com/hasherezade/pe-bear"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/hasherezade/pe-bear-releases/releases/download/$version/PE-bear_$version_x64_win.zip"
+                "url": "https://github.com/hasherezade/pe-bear/releases/download/v$version/PE-bear_$version_x64_win_vs19.zip"
             },
             "32bit": {
-                "url": "https://github.com/hasherezade/pe-bear-releases/releases/download/$version/PE-bear_$version_x86_win.zip"
+                "url": "https://github.com/hasherezade/pe-bear/releases/download/v$version/PE-bear_$version_x86_win_vs19.zip"
             }
         }
     }

@@ -1,14 +1,14 @@
 {
-    "homepage": "http://www.angusj.com/resourcehacker/",
-    "description": "A freeware resource compiler & decompiler for Windows applications.",
-    "version": "5.1.7",
+    "version": "5.2.7",
+    "description": "Resource compiler & decompiler for Windows applications",
+    "homepage": "https://www.angusj.com/resourcehacker/",
     "license": {
         "identifier": "Freeware",
-        "url": "http://www.angusj.com/resourcehacker/"
+        "url": "https://www.angusj.com/resourcehacker/"
     },
-    "url": "http://www.angusj.com/resourcehacker/resource_hacker.zip",
-    "hash": "7d33dbc5ab0e4a9e1c88471d8afcba024dc62792f643833869f4e459306b01e6",
-    "pre_install": "if (!(Test-Path \"$persist_dir\\ResourceHacker.ini\")) { New-Item \"$dir\\ResourceHacker.ini\" -ItemType File | Out-Null }",
+    "url": "https://www.angusj.com/resourcehacker/resource_hacker.zip",
+    "hash": "f958db1d239e69051145777de9943b267a3230cc3d140599b48cf024e2c8b3a2",
+    "pre_install": "if (!(Test-Path \"$persist_dir\\ResourceHacker.ini\")) { New-Item \"$dir\\ResourceHacker.ini\" | Out-Null }",
     "bin": "ResourceHacker.exe",
     "shortcuts": [
         [
@@ -17,8 +17,10 @@
         ]
     ],
     "persist": "ResourceHacker.ini",
-    "checkver": "Download version ([\\d.]+):",
+    "checkver": {
+        "regex": "Changes in ([\\d.]+)"
+    },
     "autoupdate": {
-        "url": "http://www.angusj.com/resourcehacker/resource_hacker.zip"
+        "url": "https://www.angusj.com/resourcehacker/resource_hacker.zip"
     }
 }

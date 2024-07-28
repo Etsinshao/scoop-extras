@@ -1,27 +1,27 @@
 {
+    "version": "7.4.3",
+    "description": "Scan documents to PDF and more, as simply as possible",
     "homepage": "https://www.naps2.com/",
     "license": "GPL-2.0-only",
-    "description": "A document scanning application with a focus on simplicity and ease of use",
-    "version": "6.1.2",
-    "url": "https://github.com/cyanfish/naps2/releases/download/v6.1.2/naps2-6.1.2-portable.7z",
-    "hash": "2b2ebb144716774505c8abf6b121cbb2684be9ea273299681178f1bc7c75e166",
+    "url": "https://github.com/cyanfish/naps2/releases/download/v7.4.3/naps2-7.4.3-win.zip",
+    "hash": "321466a33c3891939ff9856d3f81f75218bdb4f5687797ffe8e3ac536c6f0002",
     "bin": [
         [
             "App\\NAPS2.Console.exe",
             "NAPS2"
         ]
     ],
-    "persist": "Data",
     "shortcuts": [
         [
             "App\\NAPS2.exe",
             "NAPS2"
         ]
     ],
+    "persist": "Data",
     "checkver": {
         "github": "https://github.com/cyanfish/naps2"
     },
     "autoupdate": {
-        "url": "https://github.com/cyanfish/naps2/releases/download/v$version/naps2-$version-portable.7z"
+        "url": "https://github.com/cyanfish/naps2/releases/download/v$version/naps2-$version-win.zip"
     }
 }

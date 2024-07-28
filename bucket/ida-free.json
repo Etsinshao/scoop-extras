@@ -1,50 +1,49 @@
 {
-    "homepage": "https://www.hex-rays.com/products/ida/index.shtml",
+    "version": "8.4.240527",
     "description": "A multi-processor disassembler and debugger that offers so many features it is hard to describe them all",
-    "license": {
-        "identifier": "Freeware",
-        "url": "https://www.hex-rays.com/products/ida/licenses.shtml"
-    },
-    "version": "7.0",
+    "homepage": "https://hex-rays.com/ida-free/",
+    "license": "Freeware",
     "architecture": {
         "64bit": {
-            "url": "https://out7.hex-rays.com/files/idafree70_windows.exe",
-            "hash": "sha1:38b41baf3dd60dba67a7e656c5e5beb2d4a0adca",
-            "pre_install": "if (-not (is_admin)) { error 'Administrator privileges are needed'; break }",
-            "installer": {
-                "args": [
-                    "--mode unattended",
-                    "--unattendedmodeui minimal",
-                    "--installpassword freeware",
-                    "--prefix \"$dir\""
-                ]
-            },
-            "uninstaller":{
-                "file" : "uninstall.exe",
-                "args": [
-                    "--mode unattended"
-                ]
-            },
-            "bin": "ida64.exe",
-            "shortcuts": [
-                [
-                    "ida64.exe",
-                    "IDA Freeware"
-                ]
-            ]
+            "url": "https://out7.hex-rays.com/files/idafree84_windows.exe",
+            "hash": "a2fc7eae91860a6d05c946d1ee8ab59afd061e8fc5f965de4112d66b16ac2091"
         }
     },
+    "pre_install": "if (!(is_admin)) { throw 'Administrator privileges are required' }",
+    "installer": {
+        "args": [
+            "--mode",
+            "unattended",
+            "--prefix",
+            "$dir"
+        ]
+    },
+    "bin": "ida64.exe",
+    "shortcuts": [
+        [
+            "ida64.exe",
+            "IDA Freeware"
+        ]
+    ],
+    "pre_uninstall": "if (!(is_admin)) { throw 'Administrator privileges are required' }",
+    "uninstaller": {
+        "file": "uninstall.exe",
+        "args": [
+            "--mode",
+            "unattended"
+        ]
+    },
     "checkver": {
-        "url": "https://www.hex-rays.com/products/ida/support/download_freeware.shtml",
-        "regex": "IDA\\sv([\\d.]+)\\s+"
+        "url": "https://hex-rays.com/ida-free/#download",
+        "regex": ">v([\\d.]+)(?:sp\\d)?<"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
                 "url": "https://out7.hex-rays.com/files/idafree$majorVersion$minorVersion_windows.exe",
                 "hash": {
-                    "url": "https://www.hex-rays.com/products/ida/support/download_freeware.shtml",
-                    "regex": "$sha1\\s+$basename"
+                    "url": "https://hex-rays.com/ida-free/#download",
+                    "regex": "$sha256\\s+$basename"
                 }
             }
         }

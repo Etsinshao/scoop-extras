@@ -1,0 +1,34 @@
+{
+    "version": "2.9.1",
+    "description": "Interactive, nonlinear story creator",
+    "homepage": "https://twinery.org",
+    "license": "GPL-3.0-only",
+    "url": "https://github.com/klembot/twinejs/releases/download/2.9.1/Twine-2.9.1-Windows.exe#/dl.7z",
+    "hash": "212e31c7f7d0b8be3893a00761d2412eddf33bcf0ab0ece1db6489641cb92617",
+    "architecture": {
+        "64bit": {
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse"
+            ]
+        },
+        "32bit": {
+            "pre_install": [
+                "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-32.7z\" \"$dir\"",
+                "Remove-Item \"$dir\\`$*\", \"$dir\\Uninstall*\" -Recurse"
+            ]
+        }
+    },
+    "shortcuts": [
+        [
+            "twine.exe",
+            "Twine"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/klembot/twinejs"
+    },
+    "autoupdate": {
+        "url": "https://github.com/klembot/twinejs/releases/download/$version/Twine-$version-Windows.exe#/dl.7z"
+    }
+}

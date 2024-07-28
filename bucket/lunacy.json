@@ -1,32 +1,18 @@
 {
-    "version": "5.9.0",
-    "description": "Free Graphic Design Software.",
+    "version": "9.6.1",
+    "description": "Free Graphic Design Software",
     "homepage": "https://icons8.com/lunacy",
     "license": {
         "identifier": "Freeware",
         "url": "https://docs.icons8.com/lunacy%20license.md"
     },
-    "url": "https://desktop.icons8.com/lunacy/LunacySetup_5.9.0.exe",
-    "hash": "57287353b37e53e9fa69664f1fd164e6131d9829dd1e81f89f362ae20727cd75",
-    "innosetup": true,
     "architecture": {
         "64bit": {
-            "installer": {
-                "script": [
-                    "Get-ChildItem \"$dir\" '*,1.*' | ForEach-Object { Rename-Item $_.Fullname \"$($_.Basename.TrimEnd(',1'))$($_.Extension)\" }",
-                    "Remove-Item \"$dir\\*,2*\""
-                ]
-            }
-        },
-        "32bit": {
-            "installer": {
-                "script": [
-                    "Get-ChildItem \"$dir\" '*,2.*' | ForEach-Object { Rename-Item $_.Fullname \"$($_.Basename.TrimEnd(',2'))$($_.Extension)\" }",
-                    "Remove-Item \"$dir\\*,1*\""
-                ]
-            }
+            "url": "https://lun-eu.icons8.com/s/setup/LunacySetup_9.6.1.exe",
+            "hash": "710d7f7aaa4a85185c3a9143a9bb3e5a858a4c32f2d44209b0bf89f2ec8bbbb3"
         }
     },
+    "innosetup": true,
     "bin": "Lunacy.exe",
     "shortcuts": [
         [
@@ -36,9 +22,13 @@
     ],
     "checkver": {
         "url": "https://docs.icons8.com/release-notes/",
-        "regex": "LunacySetup_([\\d.]+)\\.exe"
+        "regex": "setup/LunacySetup_([\\d.]+)\\.exe"
     },
     "autoupdate": {
-        "url": "https://desktop.icons8.com/lunacy/LunacySetup_$version.exe"
+        "architecture": {
+            "64bit": {
+                "url": "https://lun-eu.icons8.com/s/setup/LunacySetup_$version.exe"
+            }
+        }
     }
 }

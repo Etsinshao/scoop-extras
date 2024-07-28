@@ -1,10 +1,10 @@
 {
-    "homepage": "https://fontforge.github.io",
+    "version": "20230101",
     "description": "A free (libre) font editor, which can create, edit and convert fonts in OpenType, TrueType, UFO, CID-keyed, Multiple Master, and many other formats.",
+    "homepage": "https://fontforge.github.io",
     "license": "GPL-3.0-or-later",
-    "version": "20200314",
-    "url": "https://github.com/fontforge/fontforge/releases/download/20200314/FontForge-2020-03-14-Windows.exe",
-    "hash": "89f8ca85dc66517fa84334b698b867c0e8ac42d38f0bb545d0f9c8fe0cbbf865",
+    "url": "https://github.com/fontforge/fontforge/releases/download/20230101/FontForge-2023-01-01-Windows.exe",
+    "hash": "fc6eb57495e737025efb37ad6f1effad7fef47f19a8a5f2656705687e4f43162",
     "innosetup": true,
     "shortcuts": [
         [
@@ -12,17 +12,17 @@
             "FontForge"
         ],
         [
-            "fontforge.bat",
-            "FontForge console"
-        ],
-        [
             "fontforge-console.bat",
-            "FontForge interactive console"
+            "FontForge console"
         ]
+    ],
+    "bin": [
+        "fontforge.bat",
+        "bin/ffpython.exe"
     ],
     "checkver": {
         "github": "https://github.com/fontforge/fontforge",
-        "re": "/download/(?<path>[\\d]{8}/FontForge-(?<year>[\\d]{4})-(?<month>[\\d]{2})-(?<day>[\\d]{2})-Windows(?<release>[-r\\d]*?).exe)",
+        "regex": "/download/(?<path>[\\d]{8}/FontForge-(?<year>[\\d]{4})-(?<month>[\\d]{2})-(?<day>[\\d]{2})-Windows(?<release>[-r\\d]*?).exe)",
         "replace": "${year}${month}${day}${release}"
     },
     "autoupdate": {
